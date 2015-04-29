@@ -1,11 +1,11 @@
 #include "fecha.h"
 
-struct Dia {
-    int day, month, year;
-};
-
 struct Hora {
     int hour, min;
+};
+
+struct Dia {
+    int day, month, year;
 };
 
 Fecha::Fecha() {

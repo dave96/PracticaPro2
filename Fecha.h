@@ -9,15 +9,14 @@
     @brief Representa un momento específico, mediante una hora y mediante un día.
  */
 
+//No se si esto estaria bien, que piensas? Quiero separar la especificacion de la implementacion, si esto funciona
+//que es asi, pero es cierto que puede ser que los campos de un struct se consideren especificaion, no implementacion.
+//dime que piensas.
 struct Hora;
+struct Dia;
 
 class Fecha {
 private:
-    //No se si esto estaria bien, que piensas? Quiero separar la especificacion de la implementacion, si esto funciona
-    //que es asi, pero es cierto que puede ser que los campos de un struct se consideren especificaion, no implementacion.
-    //dime que piensas.
-    struct Hora;
-    struct Dia;
 public:
     Fecha();
     ~Fecha();
