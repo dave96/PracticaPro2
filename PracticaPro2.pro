@@ -9,9 +9,7 @@ SOURCES += main.cpp \
     comanda.cpp \
     tarea.cpp \
     etiqueta.cpp \
-    fecha.cpp \
-    hora.cpp \
-    dia.cpp
+    fecha.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -22,7 +20,5 @@ HEADERS += \
     comanda.h \
     tarea.h \
     etiqueta.h \
-    fecha.h \
-    hora.h \
-    dia.h
+    fecha.h
 

@@ -5,17 +5,19 @@
 #ifndef FECHA_H
 #define FECHA_H
 
-#include "hora.h"
-#include "dia.h"
-
 /** @class Fecha
     @brief Representa un momento específico, mediante una hora y mediante un día.
  */
 
+struct Hora;
+
 class Fecha {
 private:
-    Hora hora;
-    Dia dia;
+    //No se si esto estaria bien, que piensas? Quiero separar la especificacion de la implementacion, si esto funciona
+    //que es asi, pero es cierto que puede ser que los campos de un struct se consideren especificaion, no implementacion.
+    //dime que piensas.
+    struct Hora;
+    struct Dia;
 public:
     Fecha();
     ~Fecha();
