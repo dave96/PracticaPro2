@@ -18,7 +18,7 @@ public:
     Etiqueta(string etiqueta);
     ~Etiqueta();
 
-    string getEtiqueta();
+    string getEtiqueta() const;
 };
 
 #endif // ETIQUETA_H

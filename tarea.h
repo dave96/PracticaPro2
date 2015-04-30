@@ -24,19 +24,20 @@ private:
     list<Etiqueta> etiquetas;
 
 public:
+
     Tarea();
     ~Tarea();
 
-    void write();
-    Fecha getFecha();
-    string getTitle();
-    list<Etiqueta> getEtiquetas();
+    void write() const;
+    Fecha getFecha() const;
+    string getTitle() const;
+    list<Etiqueta> getEtiquetas() const;
 
     void setFecha();
     void setTitle();
     void addEtiqueta();
 
-    bool tieneEtiqueta(list<Etiqueta> etiquetas);
+    bool tieneEtiqueta(list<Etiqueta> etiquetas) const;
 
 };
 

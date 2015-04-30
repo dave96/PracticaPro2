@@ -59,8 +59,7 @@ android-no-sdk {
     }
 
     export(target.path)
-    INSTALLS += target
-} else:win32 {
+    INSTALLS += targetx
     copyCommand =
     for(deploymentfolder, DEPLOYMENTFOLDERS) {
         source = $$MAINPROFILEPWD/$$eval($${deploymentfolder}.source)
