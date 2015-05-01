@@ -27,7 +27,7 @@ public:
     /** @brief Crea una fecha nueva, con dia y hora asignados.
     \pre dia y hora están inicializados.
     \post El p.i. tiene dia y hora asignados.*/
-    Fecha(Dia dia, Hora hora);
+    Fecha(const Dia& dia, const Hora& hora);
     Fecha();
     ~Fecha();
 

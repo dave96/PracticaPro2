@@ -24,8 +24,7 @@ private:
     list<Etiqueta> etiquetas;
 
 public:
-
-    Tarea();
+    Tarea(string title, const Fecha& fecha);
     ~Tarea();
 
     void write() const;
@@ -38,7 +37,6 @@ public:
     void addEtiqueta();
 
     bool tieneEtiqueta(list<Etiqueta> etiquetas) const;
-
 };
 
 #endif // TAREA_H

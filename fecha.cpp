@@ -2,8 +2,9 @@
 #include <iostream>
 using namespace std;
 
-Fecha::Fecha(Dia dia, Hora hora) {
-
+Fecha::Fecha(const Dia& dia, const Hora& hora) {
+    this->dia = dia;
+    this->hora = hora;
 }
 
 Fecha::Fecha() {

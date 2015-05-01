@@ -6,6 +6,9 @@
 #define AGENDA_H
 
 #include "comanda.h"
+#include "reloj.h"
+#include "tarea.h"
+#include <list>
 
 /** @class Agenda
     @brief Representa una agenda (Estructura en la que almacenas tareas pasadas y futuras, con reloj y con comanda
@@ -16,6 +19,8 @@
 class Agenda {
 private:
     Comanda comanda;
+    Reloj reloj;
+    list<Tarea> tareas;
 public:
     /** @brief Crea una agenda vacía con un reloj que se iniciará con fecha inicial.
     \pre Cierto.
