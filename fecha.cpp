@@ -38,27 +38,22 @@ void Fecha::setHora(const string& hora) {
 }
 
 bool Fecha::compare(const Fecha &f) const {
-    Dia dia2 = f.getDia();
-    if(dia.year < dia2.year) {
+    if(invertirDia(dia) < invertirDia(f.getDia())) {
         return true;
     } else {
-        if(dia.month < dia2.month) {
+        if(hora < f.getHora()) {
             return true;
         } else {
-            if(dia.day < dia2.day) {
-                return true;
-            } else {
-                Hora hora2 = f.getHora();
-                if(hora.hour < hora2.hour) {
-                    return true;
-                } else {
-                    if(hora.min < hora2.min) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-            }
+            return false;
         }
     }
+}
+
+string Fecha::invertirDia(string dia) {
+    int length = dia.size();
+    dia[0] = dia[0]+dia[length-2];
+    dia[1] = dia[1]+dia[length-1];
+    dia[length-2] = dia[0]-dia[length-2];
+    dia[length-1] = dia[1]-dia[length-1];
+    return dia;
 }

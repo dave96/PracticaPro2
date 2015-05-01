@@ -16,6 +16,7 @@ class Fecha {
 private:
     string hora;
     string dia;
+    static string invertirDia(string dia);
 public:
 
     /** @brief Crea una fecha nueva, con dia y hora asignados.
@@ -50,7 +51,7 @@ public:
     \post El p.i. tiene dia asignado*/
     void setDia(const string& dia);
 
-    /** @brief Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior o igual al parámetro.
+    /** @brief Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior a f.
     \pre fecha es una fecha inicializada.
     \post Devuelve true si f es posterior al p.i., false si no.*/
     bool compare(const Fecha& f) const;
