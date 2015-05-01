@@ -9,7 +9,12 @@ Reloj::~Reloj() {
 }
 
 bool Reloj::update(const Fecha& f) {
-
+    if(compare(f)) {
+        fecha = f;
+        return true;
+    } else {
+        return true;
+    }
 }
 
 bool Reloj::compare(const Fecha& f) const {

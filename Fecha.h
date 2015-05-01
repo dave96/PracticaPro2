@@ -9,8 +9,14 @@
     @brief Representa un momento específico, mediante una hora y mediante un día (structs).
  */
 
-struct Hora;
-struct Dia;
+struct Hora {
+    int hour, min;
+};
+
+struct Dia {
+    int day, month, year;
+};
+
 
 class Fecha {
 private:
@@ -22,6 +28,7 @@ public:
     \pre dia y hora están inicializados.
     \post El p.i. tiene dia y hora asignados.*/
     Fecha(Dia dia, Hora hora);
+    Fecha();
     ~Fecha();
 
     /** @brief Imprime por pantalla el p.i.

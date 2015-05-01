@@ -2,15 +2,11 @@
 #include <iostream>
 using namespace std;
 
-struct Hora {
-    int hour, min;
-};
-
-struct Dia {
-    int day, month, year;
-};
-
 Fecha::Fecha(Dia dia, Hora hora) {
+
+}
+
+Fecha::Fecha() {
 
 }
 
@@ -35,7 +31,7 @@ void Fecha::setDia(Dia dia) {
 }
 
 void Fecha::setHora(Hora hora) {
-    this->dia = hora;
+    this->hora = hora;
 }
 
 bool Fecha::compare(const Fecha &f) const {
@@ -50,7 +46,7 @@ bool Fecha::compare(const Fecha &f) const {
                 return true;
             } else {
                 Hora hora2 = f.getHora();
-                if(hora.hour < hora2) {
+                if(hora.hour < hora2.hour) {
                     return true;
                 } else {
                     if(hora.min < hora2.min) {
