@@ -1,4 +1,5 @@
 #include "tarea.h"
+#include <iostream>
 
 Tarea::Tarea(string title, const Fecha& fecha) {
     this->title = title;
@@ -7,4 +8,10 @@ Tarea::Tarea(string title, const Fecha& fecha) {
 
 Tarea::~Tarea() {
 
+}
+
+void Tarea::write() const {
+    cout << title << " ";
+    fecha.write();
+    cout << endl;
 }

@@ -2,11 +2,13 @@
 #include <iostream>
 using namespace std;
 
-Fecha::Fecha(const Dia& dia, const Hora& hora) {
+Fecha::Fecha(const string& dia, const string& hora) {
     this->dia = dia;
     this->hora = hora;
 }
 
+//Constructor vacío necesario para que otras clases puedan tener una fecha como atributo privado. Si no pongo esto, el
+//compilador no sabe como construirlo en el Fecha fecha;
 Fecha::Fecha() {
 
 }
@@ -16,22 +18,22 @@ Fecha::~Fecha() {
 }
 
 void Fecha::write() const {
-    cout << hora.hour << ':' << hora.min << " " << dia.day << '-' << dia.month << '-' << dia.year;
+    cout << dia << " " << hora;
 }
 
-Dia Fecha::getDia() const {
+string Fecha::getDia() const {
     return dia;
 }
 
-Hora Fecha::getHora() const {
+string Fecha::getHora() const {
     return hora;
 }
 
-void Fecha::setDia(Dia dia) {
+void Fecha::setDia(const string& dia) {
     this->dia = dia;
 }
 
-void Fecha::setHora(Hora hora) {
+void Fecha::setHora(const string& hora) {
     this->hora = hora;
 }
 

@@ -20,3 +20,8 @@ bool Reloj::update(const Fecha& f) {
 bool Reloj::compare(const Fecha& f) const {
     return fecha.compare(f);
 }
+
+
+void Reloj::write() const {
+    fecha.write();
+}

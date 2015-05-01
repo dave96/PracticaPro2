@@ -29,6 +29,11 @@ public:
     \pre f es una fecha inicializada.
     \post Devuelve true si f es posterior a la fecha del p.i., false si no.*/
     bool compare(const Fecha& f) const;
+
+    /** @brief Imprime por pantalla el reloj. Básicamente imprime su fecha.
+    \pre Cierto.
+    \post Se imprime la fecha del reloj. */
+    void write() const;
 };
 
 #endif // RELOJ_H
