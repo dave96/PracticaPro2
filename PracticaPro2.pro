@@ -8,7 +8,6 @@ SOURCES += main.cpp \
     reloj.cpp \
     comanda.cpp \
     tarea.cpp \
-    etiqueta.cpp \
     fecha.cpp \
     token.cpp
 
@@ -20,7 +19,6 @@ HEADERS += \
     reloj.h \
     comanda.h \
     tarea.h \
-    etiqueta.h \
     fecha.h \
     token.h
 
