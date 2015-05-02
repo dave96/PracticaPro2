@@ -8,7 +8,6 @@
 #include <list>
 #include <string>
 #include "fecha.h"
-#include "etiqueta.h"
 using namespace std;
 
 /** @class Tarea
@@ -21,12 +20,12 @@ class Tarea {
 private:
     string title;
     Fecha fecha;
-    list<Etiqueta> etiquetas;
+    list<string> etiquetas;
 
 public:
     /** @brief Crea una tarea con título y fecha.
     \pre Cierto.
-    \post  Inicializa el p.i. con title y fecha. Falta etiquetas, si tiene.*/
+    \post  Inicializa el p.i. con title y fecha. Faltarán las etiquetas, si tiene.*/
     Tarea(string title, const Fecha& fecha);
     ~Tarea();
 
@@ -48,7 +47,7 @@ public:
     /** @brief Devuelve la lista de las etiquetas descriptivas del p.i..
     \pre Cierto.
     \post Devuelve una lista de las etiquetas del p.i. Vacía si no tiene etiquetas.*/
-    list<Etiqueta> getEtiquetas() const;
+    list<string> getEtiquetas() const;
 
     /** @brief .
     \pre f está inicilizada.
@@ -63,12 +62,12 @@ public:
     /** @brief .
     \pre e está inicializada.
     \post El p.i. tiene una etiqueta más en la lista etiquetas.*/
-    void addEtiqueta(const Etiqueta& e);
+    void addEtiqueta(const string& e);
 
     /** @brief Comprueva si el p.i. tiene al menos una etiqueta de etiquetas.
     \pre etiquetas están inicializadas.
     \post Devuelve true si el p.i. tiene al menos una etiqueta igual que alguna de etiquetas. Falso si no.*/
-    bool tieneEtiqueta(list<Etiqueta> etiquetas) const;
+    bool tieneEtiqueta(list<string> etiquetas) const;
 };
 
 #endif // TAREA_H
