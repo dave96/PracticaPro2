@@ -1,6 +1,0 @@
-<map id="Reloj::update" name="Reloj::update">
-<area shape="rect" id="node2" href="$class_reloj.html#a726ccc9bef9bd67f2c46c2d30bf34140" title="Compara la fecha del p.i. con otra fecha como parámetro. " alt="" coords="152,31,261,57"/>
-<area shape="rect" id="node3" href="$class_fecha.html#a3d597e38eb0fe11853c9480f183d0921" title="Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior a f..." alt="" coords="309,31,425,57"/>
-<area shape="rect" id="node4" href="$class_fecha.html#a85d32f9b862736517d375b316d08167b" title="Devuelve dia del p.i. " alt="" coords="477,5,580,32"/>
-<area shape="rect" id="node5" href="$class_fecha.html#a9c68e70d6b8090ceae5a386001dd2dff" title="Devuelve hora del p.i. " alt="" coords="473,56,584,83"/>
-</map>

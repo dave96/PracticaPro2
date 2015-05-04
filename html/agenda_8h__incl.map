@@ -1,7 +1,0 @@
-<map id="agenda.h" name="agenda.h">
-<area shape="rect" id="node2" href="$comanda_8h.html" title="Classe Comanda. " alt="" coords="166,80,253,107"/>
-<area shape="rect" id="node9" href="$reloj_8h.html" title="Classe Reloj. " alt="" coords="378,80,436,107"/>
-<area shape="rect" id="node11" href="$tarea_8h.html" title="Classe Tarea. " alt="" coords="460,80,522,107"/>
-<area shape="rect" id="node8" href="$token_8h.html" title="Classe Token. " alt="" coords="248,155,313,181"/>
-<area shape="rect" id="node10" href="$fecha_8h.html" title="Classe Fecha. " alt="" coords="388,155,458,181"/>
-</map>

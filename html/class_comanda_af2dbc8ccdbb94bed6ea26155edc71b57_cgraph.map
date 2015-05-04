@@ -1,5 +1,0 @@
-<map id="Comanda::llegir" name="Comanda::llegir">
-<area shape="rect" id="node2" href="$class_comanda.html#a847ee227fd7fea3a105dbd78735de453" title="Comprova si la comanda és una consulta (&quot;?&quot;, &quot;passat?&quot; o &quot;rellotge?&quot; és el primer string) ..." alt="" coords="171,5,326,32"/>
-<area shape="rect" id="node3" href="$class_comanda.html#a9e71320e8617ce224c8d994d0969555a" title="Comprova si la comanda és d&#39;esborrat (comença per &quot;&#45;k&quot; o per &quot;k &#45;x&quot;, on k és un enter) ..." alt="" coords="172,56,325,83"/>
-<area shape="rect" id="node4" href="$class_comanda.html#a998dc172668a108837512f818ca5430f" title="Consulta el tipus d&#39;esborrat. " alt="" coords="165,107,332,133"/>
-</map>

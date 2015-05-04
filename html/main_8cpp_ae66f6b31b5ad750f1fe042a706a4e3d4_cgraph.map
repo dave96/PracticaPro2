@@ -1,4 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node2" href="$class_agenda.html#a58e4a9b6a7552a834d21805cd5afc855" title="Lee una comanda nueva y la sustituye por la anterior ya que ya está ejecutada. " alt="" coords="104,5,259,32"/>
-<area shape="rect" id="node3" href="$class_agenda.html#a35a4fc0a2379dd7184b4b84327c6eb42" title="Ejecuta la comanda almacenada. " alt="" coords="108,56,255,83"/>
-</map>

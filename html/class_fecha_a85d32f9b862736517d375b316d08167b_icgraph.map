@@ -1,5 +1,0 @@
-<map id="Fecha::getDia" name="Fecha::getDia">
-<area shape="rect" id="node2" href="$class_fecha.html#a3d597e38eb0fe11853c9480f183d0921" title="Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior a f..." alt="" coords="156,5,272,32"/>
-<area shape="rect" id="node3" href="$class_reloj.html#a726ccc9bef9bd67f2c46c2d30bf34140" title="Compara la fecha del p.i. con otra fecha como parámetro. " alt="" coords="320,5,429,32"/>
-<area shape="rect" id="node4" href="$class_reloj.html#aa3c60e323181fc49c6de4552a9f6e458" title="Actualiza la fecha del reloj, si la nueva fecha es posterior a la del p.i. " alt="" coords="477,5,576,32"/>
-</map>

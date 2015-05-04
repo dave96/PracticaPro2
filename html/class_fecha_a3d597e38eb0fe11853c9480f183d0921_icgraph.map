@@ -1,4 +1,0 @@
-<map id="Fecha::compare" name="Fecha::compare">
-<area shape="rect" id="node2" href="$class_reloj.html#a726ccc9bef9bd67f2c46c2d30bf34140" title="Compara la fecha del p.i. con otra fecha como parámetro. " alt="" coords="169,5,279,32"/>
-<area shape="rect" id="node3" href="$class_reloj.html#aa3c60e323181fc49c6de4552a9f6e458" title="Actualiza la fecha del reloj, si la nueva fecha es posterior a la del p.i. " alt="" coords="327,5,425,32"/>
-</map>
