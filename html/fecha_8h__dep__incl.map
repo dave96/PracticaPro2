@@ -1,0 +1,6 @@
+<map id="fecha.h" name="fecha.h">
+<area shape="rect" id="node2" href="$reloj_8h.html" title="Classe Reloj. " alt="" coords="5,80,63,107"/>
+<area shape="rect" id="node5" href="$tarea_8h.html" title="Classe Tarea. " alt="" coords="87,80,149,107"/>
+<area shape="rect" id="node3" href="$agenda_8h.html" title="Classe Agenda. " alt="" coords="38,155,113,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Programa principal del gestor de tareas. " alt="" coords="38,229,113,256"/>
+</map>
