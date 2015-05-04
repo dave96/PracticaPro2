@@ -11,7 +11,9 @@
 #include <list>
 
 /** @class Agenda
-    @brief Representa una agenda. Estructura en la que almacenas tareas pasadas y futuras, con reloj y con comanda
+    @brief Representa una agenda.
+
+    Estructura en la que almacena tareas (Tarea) pasadas y futuras, con Reloj y con Comanda
     para ejecutar sobre sus tareas.
     Se utilizará básicamente a través de comandas.
     De acceso público solo tiene dos métodos, uno para mandarle leer una comanda y otra para ejecutarla. Todos los

@@ -15,6 +15,7 @@ using namespace std;
 
 /** @class Comanda
     @brief Representa una comanda (línia de text d'entrada).
+
  El mètode llegir permet utilitzar consultores sobre la comanda llegida i comprovar
  que no tingui errors sintàctics.
  */

@@ -8,7 +8,7 @@
 #include "Fecha.h"
 
 /** @class Reloj
-    @brief Representa un reloj, una estructura que almacena una fecha y que la modifica (hacia futuro).
+    @brief Representa un reloj, una estructura que almacena una Fecha y que la modifica (hacia futuro).
  */
 
 class Reloj {

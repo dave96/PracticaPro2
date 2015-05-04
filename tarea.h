@@ -11,8 +11,9 @@
 using namespace std;
 
 /** @class Tarea
-    @brief Representa una tarea, es decir una estructura de datos en la que se guarda una acción. Representada
-    con un título, con una fecha y con una lista de etiquetas descriptivas.
+    @brief Representa una tarea, es decir una estructura de datos en la que se guarda una acción.
+
+    Representada con un título, con una Fecha y con una lista de etiquetas descriptivas.
  */
 
 class Tarea {
