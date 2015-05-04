@@ -14,6 +14,5 @@ int main() {
     while(agenda.readComanda()) {
         agenda.runComanda();
     }
-    cout << "Fin de programa, gracias por usarme. Gon mola" << endl;
+    cout << "Fin de programa, gracias por usarme." << endl;
 }
-
