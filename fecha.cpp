@@ -30,11 +30,15 @@ string Fecha::getHora() const {
 }
 
 void Fecha::setDia(const string& dia) {
-    (*this).dia = dia;
+    if(dia != "") {
+        (*this).dia = dia;
+    }
 }
 
 void Fecha::setHora(const string& hora) {
-    (*this).hora = hora;
+    if(hora != "") {
+        (*this).hora = hora;
+    }
 }
 
 bool Fecha::operator <(const Fecha& f) const {

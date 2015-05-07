@@ -22,11 +22,10 @@ bool Agenda::runComanda() {
             Fecha f(comanda.data(1), comanda.hora());
             error = !reloj.update(f);
         }
-    } else if() {
-
     }
     if (error) {
         cout << "No s'ha realitzat" << endl;
     }
+    return error;
 }
 
