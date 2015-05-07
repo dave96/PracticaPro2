@@ -8,8 +8,12 @@
 #include "comanda.h"
 #include "reloj.h"
 #include "tarea.h"
-#include "fecha.h"
+#include "Fecha.h"
 #include <list>
+#include <map>
+#include <iostream>
+
+using namespace std;
 
 /** @class Agenda dfsdfsdfsdfsdfsd
     @brief Representa una agenda.
@@ -24,7 +28,7 @@ class Agenda {
 private:
     Comanda comanda;
     Reloj reloj;
-    list<Tarea> tareas;
+    map <Fecha, Tarea, less<Fecha> > tareas;
 public:
     /** @brief Crea una agenda vacía con un reloj que se iniciará con fecha inicial.
     \pre Cierto.
