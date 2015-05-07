@@ -14,7 +14,7 @@ int main() {
     bool formato = false;
     while(agenda.readComanda(formato)) {
         if(formato) {
-            //agenda.runComanda();
+            agenda.runComanda();
         }
     }
     cout << "Fin de programa, gracias por usarme." << endl;
