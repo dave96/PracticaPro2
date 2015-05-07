@@ -11,8 +11,11 @@ using namespace std;
 
 int main() {
     Agenda agenda;
-    while(agenda.readComanda()) {
-        agenda.runComanda();
+    bool formato = false;
+    while(agenda.readComanda(formato)) {
+        if(formato) {
+            //agenda.runComanda();
+        }
     }
     cout << "Fin de programa, gracias por usarme." << endl;
 }

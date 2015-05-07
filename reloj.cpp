@@ -1,7 +1,7 @@
 #include "reloj.h"
 
 Reloj::Reloj() {
-
+    fecha = Fecha("20.04.15", "00:00");
 }
 
 Reloj::~Reloj() {
@@ -13,12 +13,12 @@ bool Reloj::update(const Fecha& f) {
         fecha = f;
         return true;
     } else {
-        return true;
+        return false;
     }
 }
 
 bool Reloj::compare(const Fecha& f) const {
-    return fecha < f;
+    return fecha < f || fecha == f;
 }
 
 

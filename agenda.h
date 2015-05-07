@@ -17,7 +17,7 @@ using namespace std;
 /** @class Agenda
     @brief Representa una agenda.
 
-    Estructura en la que almacena tareas (Tarea) pasadas y futuras, con Reloj y con Comanda
+    Estructura en la que almacena tareas (Tarea) pasadas y futuras, con Reloj, con Comanda y con Menu
     para ejecutar sobre sus tareas.
     Se utilizará básicamente a través de comandas.
     De acceso público solo tiene dos métodos, uno para mandarle leer una comanda y otra para ejecutarla. Todos los
@@ -38,11 +38,12 @@ public:
 
     /** @brief Lee una comanda nueva y la sustituye por la anterior ya que ya está ejecutada.
     \pre Cierto.
-    \post Devuelve true si la comanda no es "sortir". False si lo es. */
-    bool readComanda();
+    \post Devuelve true si la comanda no es "sortir". False si lo es. formato = false si tiene
+    algún error de formato, true si no*/
+    bool readComanda(bool& formato);
 
     /** @brief Ejecuta la comanda almacenada.
-    \pre El p.i. tiene una comanda que no es "sortir".
+    \pre El p.i. tiene una comanda que no es "sortir" y no tiene error de formato.
     \post Devuelve true si la comanda se ha podido ejecutar. False si no. */
     bool runComanda();
 

@@ -45,6 +45,10 @@ bool Fecha::operator <(const Fecha& f) const {
     }
 }
 
+bool Fecha::operator ==(const Fecha& f) const {
+    return dia == f.getDia() && hora == f.getHora();
+}
+
 
 string Fecha::invertirDia(string dia) {
     int length = dia.size();
