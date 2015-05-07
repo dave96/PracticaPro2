@@ -3,7 +3,7 @@ DISTRIBUCIÓN DE TAREAS
 --------------------------------
 
  G - Métodos privados agenda ejecutar comanda.
-    - Programar readComanda.
+    - Programar readComanda. OK
     - runComanda llama a la función que ejecuta un tipo determinado de comanda (bifurcador ?).
         - Funciones ajenas al map
         - Funciones consultoras/modificadoras del map.
