@@ -8,6 +8,7 @@
 #include "comanda.h"
 #include "reloj.h"
 #include "tarea.h"
+#include "fecha.h"
 #include <list>
 
 /** @class Agenda

@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     comanda.cpp \
     tarea.cpp \
     fecha.cpp \
-    token.cpp
+    token.cpp \
+    menu.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -20,5 +21,6 @@ HEADERS += \
     comanda.h \
     tarea.h \
     fecha.h \
-    token.h
+    token.h \
+    menu.h
 

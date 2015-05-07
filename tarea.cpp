@@ -1,9 +1,8 @@
 #include "tarea.h"
 #include <iostream>
 
-Tarea::Tarea(string title, const Fecha& fecha) {
-    this->title = title;
-    this->fecha = fecha;
+Tarea::Tarea(string title) {
+    (*this).title = title;
 }
 
 Tarea::~Tarea() {
@@ -11,7 +10,7 @@ Tarea::~Tarea() {
 }
 
 void Tarea::write() const {
-    cout << title << " ";
-    fecha.write();
+    cout << title;
+    //imprimir todas las etiquetas cuando se implemente bien
     cout << endl;
 }
