@@ -17,3 +17,5 @@ Es un rollo pero es que sinó va a ser un lío...
  D - Función que modifica la fecha de un elemento del map.
  
  - Implementar clases secundarias.
+ 
+ - Implementar funciones de lógica de etiquetas
