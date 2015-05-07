@@ -54,7 +54,8 @@ public:
     /** @brief Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior a f.
     \pre fecha es una fecha inicializada.
     \post Devuelve true si f es posterior al p.i., false si no.*/
-    bool compare(const Fecha& f) const;
+    bool operator<(const Fecha&d) const;
+
 };
 
 #endif // FECHA_H

@@ -37,17 +37,14 @@ void Fecha::setHora(const string& hora) {
     (*this).hora = hora;
 }
 
-bool Fecha::compare(const Fecha &f) const {
+bool Fecha::operator <(const Fecha& f) const {
     if(invertirDia(dia) < invertirDia(f.getDia())) {
         return true;
     } else {
-        if(hora < f.getHora()) {
-            return true;
-        } else {
-            return false;
-        }
+        return hora < f.getHora();
     }
 }
+
 
 string Fecha::invertirDia(string dia) {
     int length = dia.size();
