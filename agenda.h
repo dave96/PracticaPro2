@@ -11,7 +11,7 @@
 #include "fecha.h"
 #include <list>
 
-/** @class Agenda
+/** @class Agenda dfsdfsdfsdfsdfsd
     @brief Representa una agenda.
 
     Estructura en la que almacena tareas (Tarea) pasadas y futuras, con Reloj y con Comanda
