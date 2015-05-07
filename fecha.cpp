@@ -3,8 +3,8 @@
 using namespace std;
 
 Fecha::Fecha(const string& dia, const string& hora) {
-    this->dia = dia;
-    this->hora = hora;
+    (*this).dia = dia;
+    (*this).hora = hora;
 }
 
 //Constructor vacío necesario para que otras clases puedan tener una fecha como atributo privado. Si no pongo esto, el
@@ -30,11 +30,11 @@ string Fecha::getHora() const {
 }
 
 void Fecha::setDia(const string& dia) {
-    this->dia = dia;
+    (*this).dia = dia;
 }
 
 void Fecha::setHora(const string& hora) {
-    this->hora = hora;
+    (*this).hora = hora;
 }
 
 bool Fecha::compare(const Fecha &f) const {
