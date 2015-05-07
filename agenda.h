@@ -8,14 +8,13 @@
 #include "comanda.h"
 #include "reloj.h"
 #include "tarea.h"
-#include "Fecha.h"
-#include <list>
+#include "fecha.h"
+#include "menu.h"
 #include <map>
-#include <iostream>
 
 using namespace std;
 
-/** @class Agenda dfsdfsdfsdfsdfsd
+/** @class Agenda
     @brief Representa una agenda.
 
     Estructura en la que almacena tareas (Tarea) pasadas y futuras, con Reloj y con Comanda
@@ -26,6 +25,7 @@ using namespace std;
 
 class Agenda {
 private:
+    Menu menu;
     Comanda comanda;
     Reloj reloj;
     map <Fecha, Tarea, less<Fecha> > tareas;
