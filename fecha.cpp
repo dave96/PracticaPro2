@@ -38,10 +38,10 @@ void Fecha::setHora(const string& hora) {
 }
 
 void Fecha::rellenar(const Fecha& f) {
-    if((*this).getDia() == "") {
+    if(dia == "") {
         setDia(f.getDia());
     }
-    if((*this).getHora() == "") {
+    if(hora == "") {
         setHora(f.getHora());
     }
 }

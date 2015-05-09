@@ -38,13 +38,13 @@ void Agenda::tratar_reloj(bool& error) {
 void Agenda::insertar_tarea(bool& error) {
     Fecha f(comanda.data(1), comanda.hora());
     f.rellenar(reloj.getFecha());
-    error = reloj.getFecha() < f;
+    map <Fecha, Tarea, less<Fecha> >::iterator i = tareas.find(f);
+    error = f < reloj.getFecha() || i != tareas.end();
     if (!error) {
         Tarea t(comanda.titol());
-        map <Fecha, Tarea, less<Fecha> >::iterator i = tareas.find(f);
-        error = i != tareas.end();
-        if(!error) {
-            tareas.insert(make_pair(f, t));
+        for (int j = 1; j <= comanda.nombre_etiquetes(); ++j) {
+            t.addEtiqueta(comanda.etiqueta(j));
         }
+        tareas.insert(make_pair(f, t));
     }
 }

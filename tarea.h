@@ -5,7 +5,7 @@
 #ifndef TAREA_H
 #define TAREA_H
 
-#include <list>
+#include <vector>
 #include <string>
 using namespace std;
 
@@ -19,13 +19,14 @@ class Tarea {
 
 private:
     string title;
-    list<string> etiquetas;
-
+    vector<string> etiquetas;
+    int n_etiquetas;
+    static const int INITIAL_SIZE = 20;
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
     \post  Inicializa el p.i. con title.*/
-    Tarea(string title);
+    Tarea(const string& title);
     ~Tarea();
 
     /** @brief Imprime por pantalla la tarea.
@@ -41,7 +42,7 @@ public:
     /** @brief Devuelve la lista de las etiquetas descriptivas del p.i..
     \pre Cierto.
     \post Devuelve una lista de las etiquetas del p.i. Vacía si no tiene etiquetas.*/
-    list<string> getEtiquetas() const;
+    vector<string> getEtiquetas() const;
 
     /** @brief .
     \pre s está inicializado.
@@ -56,7 +57,7 @@ public:
     /** @brief Comprueva si el p.i. tiene al menos una etiqueta de etiquetas.
     \pre etiquetas están inicializadas.
     \post Devuelve true si el p.i. tiene al menos una etiqueta igual que alguna de etiquetas. Falso si no.*/
-    bool tieneEtiqueta(list<string> etiquetas) const;
+    bool tieneEtiqueta(vector<string> etiquetas) const;
 };
 
 #endif // TAREA_H
