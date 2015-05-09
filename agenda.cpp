@@ -44,7 +44,7 @@ void Agenda::insertar_tarea(bool& error) {
         map <Fecha, Tarea, less<Fecha> >::iterator i = tareas.find(f);
         error = i != tareas.end();
         if(!error) {
-            tareas.insert(t);
+            tareas.insert(make_pair(f, t));
         }
     }
 }
