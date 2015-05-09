@@ -26,6 +26,9 @@ public:
     igual (no ha cambiado el p.i.). False si la fecha es anterior.*/
     bool update(Fecha& f);
 
+    /** @brief Devuelve la fecha del reloj.
+    \pre Cierto.
+    \post Se devuelve la fecha del reloj. */
     Fecha getFecha() const;
 
     /** @brief Imprime por pantalla el reloj. Básicamente imprime su fecha.

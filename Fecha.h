@@ -42,15 +42,18 @@ public:
     string getDia() const;
 
     /** @brief Modifica hora del p.i. por la que se pasa por parámetro.
-    \pre hora representa una hora válida o un string vacío.
+    \pre hora representa una hora válida.
     \post El p.i. tiene hora asignado*/
     void setHora(const string& hora);
 
     /** @brief Modifica dia del p.i. por el que se pasa por parámetro.
-    \pre dia representa un día válido o un string vacío.
+    \pre dia representa un día válido.
     \post El p.i. tiene dia asignado*/
     void setDia(const string& dia);
 
+    /** @brief Completa el p.i. con otra fecha.
+    \pre f es una fecha inicializada y válida.
+    \post El p.i. ha rellenado sus atributos si los tenía vacíos con los de f */
     void rellenar(const Fecha& f);
 
     /** @brief Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior a f.
