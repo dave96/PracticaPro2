@@ -10,25 +10,19 @@ Reloj::~Reloj() {
 
 }
 
+Fecha Reloj::getFecha() const {
+    return fecha;
+}
+
 bool Reloj::update(Fecha& f) {
-    if(f.getDia() == "") {
-        f.setDia(fecha.getDia());
-    }
-    if(f.getHora() == "") {
-        f.setHora(fecha.getHora());
-    }
-    if(compare(f)) {
+    f.rellenar(fecha);
+    if(fecha < f || fecha == f) {
         fecha = f;
         return true;
     } else {
         return false;
     }
 }
-
-bool Reloj::compare(const Fecha& f) const {
-    return fecha < f || fecha == f;
-}
-
 
 void Reloj::write() const {
     fecha.write();

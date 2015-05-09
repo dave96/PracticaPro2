@@ -30,14 +30,19 @@ string Fecha::getHora() const {
 }
 
 void Fecha::setDia(const string& dia) {
-    if(dia != "") {
-        (*this).dia = dia;
-    }
+    (*this).dia = dia;
 }
 
 void Fecha::setHora(const string& hora) {
-    if(hora != "") {
-        (*this).hora = hora;
+    (*this).hora = hora;
+}
+
+void Fecha::rellenar(const Fecha& f) {
+    if((*this).getDia() == "") {
+        setDia(f.getDia());
+    }
+    if((*this).getHora() == "") {
+        setHora(f.getHora());
     }
 }
 

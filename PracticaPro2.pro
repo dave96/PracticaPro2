@@ -20,7 +20,7 @@ HEADERS += \
     reloj.h \
     comanda.h \
     tarea.h \
-    fecha.h \
     token.h \
-    menu.h
+    menu.h \
+    fecha.h
 

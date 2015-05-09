@@ -21,15 +21,12 @@ public:
     ~Reloj();
 
     /** @brief Actualiza la fecha del reloj, si la nueva fecha es posterior a la del p.i.
-    \pre f es una fecha con hora y dia o uno de los dos campos inicializados y válidos.
+    \pre f es una fecha con hora y dia inicializados y válidos.
     \post Devuelve true si se ha realizado la actualización de la hora (la nueva fecha es posterior) o si la nueva fecha es
     igual (no ha cambiado el p.i.). False si la fecha es anterior.*/
     bool update(Fecha& f);
 
-    /** @brief Compara la fecha del p.i. con otra fecha como parámetro.
-    \pre f es una fecha inicializada.
-    \post Devuelve true si f es posterior o igual a la fecha del p.i., false si no.*/
-    bool compare(const Fecha& f) const;
+    Fecha getFecha() const;
 
     /** @brief Imprime por pantalla el reloj. Básicamente imprime su fecha.
     \pre Cierto.

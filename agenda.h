@@ -29,6 +29,8 @@ private:
     Comanda comanda;
     Reloj reloj;
     map <Fecha, Tarea, less<Fecha> > tareas;
+    void insertar_tarea(bool& error);
+    void tratar_reloj(bool& error);
 public:
     /** @brief Crea una agenda vacía con un reloj que se iniciará con fecha inicial.
     \pre Cierto.

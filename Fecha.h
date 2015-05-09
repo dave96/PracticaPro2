@@ -51,6 +51,8 @@ public:
     \post El p.i. tiene dia asignado*/
     void setDia(const string& dia);
 
+    void rellenar(const Fecha& f);
+
     /** @brief Compara el p.i. por otra fecha por parámetro. Devuelve true si el p.i. es anterior a f.
     \pre fecha es una fecha inicializada.
     \post Devuelve true si f es posterior al p.i., false si no.*/
