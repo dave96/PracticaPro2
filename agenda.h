@@ -28,7 +28,7 @@ using namespace std;
 
 class Agenda {
 private:
-    Menu* menu;
+    Menu menu;
     Comanda comanda;
     Reloj reloj;
     map <Fecha, Tarea, less<Fecha> > tareas;

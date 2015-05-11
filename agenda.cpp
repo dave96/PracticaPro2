@@ -10,11 +10,9 @@
 // Público
 
 Agenda::Agenda() {
-    menu = NULL;
 }
 
 Agenda::~Agenda() {
-    delete menu;
 }
 
 bool Agenda::readComanda(bool& formato) {
@@ -64,21 +62,21 @@ void Agenda::imprimirTareas(bool& error) {
     // Tareas pasadas.
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
-      if (it == tareas.end() or ((*it).first > reloj.getFecha())) error = true;
+      if (it == tareas.end() or ((*it).first < reloj.getFecha())) error = true;
       else {
           int comptador = 1;
-          while (it != tareas.end() and (*it).first > reloj.getFecha()) {
+          while (it != tareas.end() and ((*it).first < reloj.getFecha())) {
             cout << comptador << " " << (*it).second.getTitle() << " ";
             (*it).first.write();
             if ((*it).second.contieneEtiquetas()) {
               vector<string> etiquetas = (*it).second.getEtiquetas();
-              for(int i = 0; i < etiquetas.size(); ++i) cout << " " << v[i];
+              for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
             }
             cout << endl;
           }
       }
       // Tareas futuras
     } else {
-        
+
     }
 }
