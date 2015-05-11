@@ -10,6 +10,7 @@ using namespace std;
 
 
 class Menu {
+private:
     vector< map<Fecha, Tarea, less<Fecha> >::iterator > iteradores;
 
 public:
@@ -23,7 +24,9 @@ public:
 
     //pre Int num <= numTareas.
     //post Eliminada la tarea numero num
-    void eliminarTarea (const int& num);
+    void eliminarTarea (const int& num, bool& error);
+
+    map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea(const int& num, bool& error);
 
 };
 
