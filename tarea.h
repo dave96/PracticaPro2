@@ -39,6 +39,12 @@ public:
     \post Devuelve title.*/
     string getTitle() const;
 
+
+    /** @brief Dice si el p.i. contiene etiquetas.
+    \pre etiquetas inicializadas.
+    \post Devuelve true si la tarea contiene alguna etiqueta, false de lo contrario. */
+    bool contieneEtiquetas() const;
+
     /** @brief Devuelve la lista de las etiquetas descriptivas del p.i..
     \pre Cierto.
     \post Devuelve una lista de las etiquetas del p.i. Vacía si no tiene etiquetas.*/

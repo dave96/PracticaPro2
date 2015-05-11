@@ -10,6 +10,9 @@
 #include "tarea.h"
 #include "fecha.h"
 #include "menu.h"
+#include "token.h"
+#include <vector>
+#include <string>
 #include <map>
 
 using namespace std;
@@ -25,12 +28,14 @@ using namespace std;
 
 class Agenda {
 private:
-    Menu menu;
+    Menu* menu;
     Comanda comanda;
     Reloj reloj;
     map <Fecha, Tarea, less<Fecha> > tareas;
     void insertar_tarea(bool& error);
     void tratar_reloj(bool& error);
+    void imprimirTareas(bool& error);
+
 public:
     /** @brief Crea una agenda vacía con un reloj que se iniciará con fecha inicial.
     \pre Cierto.

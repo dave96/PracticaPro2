@@ -26,7 +26,7 @@ public:
     //post Eliminada la tarea numero num
     void eliminarTarea (const int& num, bool& error);
 
-    map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea(const int& num, bool& error);
+    map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea(const int& num, bool& error) const;
 
 };
 

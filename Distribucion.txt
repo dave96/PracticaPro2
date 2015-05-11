@@ -2,7 +2,7 @@
 DISTRIBUCIÓN DE TAREAS
 --------------------------------
 
-MANTÉN ACTUALIZADAS LAS ESPECIFICACIONES CADA VEZ QUE CAMBIES ALGO. 
+MANTÉN ACTUALIZADAS LAS ESPECIFICACIONES CADA VEZ QUE CAMBIES ALGO.
 Es un rollo pero es que sinó va a ser un lío...
 
  G - Métodos privados agenda ejecutar comanda.
@@ -11,11 +11,11 @@ Es un rollo pero es que sinó va a ser un lío...
         - Funciones ajenas al map
         - Funciones consultoras/modificadoras del map.
 
-    
+
  D - imprimirTareas
- 
+
  D - Función que modifica la fecha de un elemento del map.
- 
+
  - Implementar clases secundarias.
- 
+
  - Implementar funciones de lógica de etiquetas

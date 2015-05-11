@@ -1,12 +1,21 @@
 #include "agenda.h"
+#include "menu.h"
+#include "Fecha.h"
+#include "comanda.h"
+#include "tarea.h"
+#include "token.h"
+#include <map>
+#include <string>
+
+// Público
 
 Agenda::Agenda() {
-
+    menu = NULL;
 }
 
 Agenda::~Agenda() {
-
-}    
+    delete menu;
+}
 
 bool Agenda::readComanda(bool& formato) {
     comanda = Comanda();
@@ -25,6 +34,8 @@ bool Agenda::runComanda() {
     }
     return error;
 }
+
+// Privado
 
 void Agenda::tratar_reloj(bool& error) {
     if (comanda.es_consulta()) {
@@ -46,5 +57,28 @@ void Agenda::insertar_tarea(bool& error) {
             t.addEtiqueta(comanda.etiqueta(j));
         }
         tareas.insert(make_pair(f, t));
+    }
+}
+
+void Agenda::imprimirTareas(bool& error) {
+    // Tareas pasadas.
+    if (comanda.es_passat()) {
+      map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
+      if (it == tareas.end() or ((*it).first > reloj.getFecha())) error = true;
+      else {
+          int comptador = 1;
+          while (it != tareas.end() and (*it).first > reloj.getFecha()) {
+            cout << comptador << " " << (*it).second.getTitle() << " ";
+            (*it).first.write();
+            if ((*it).second.contieneEtiquetas()) {
+              vector<string> etiquetas = (*it).second.getEtiquetas();
+              for(int i = 0; i < etiquetas.size(); ++i) cout << " " << v[i];
+            }
+            cout << endl;
+          }
+      }
+      // Tareas futuras
+    } else {
+        
     }
 }
