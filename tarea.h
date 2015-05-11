@@ -60,10 +60,10 @@ public:
     \post El p.i. tiene una etiqueta más en la lista etiquetas.*/
     void addEtiqueta(const string& e);
 
-    /** @brief Comprueva si el p.i. tiene al menos una etiqueta de etiquetas.
+    /** @brief Comprueva si el p.i. concide con la expresión de etiquetas dada.
     \pre etiquetas están inicializadas.
-    \post Devuelve true si el p.i. tiene al menos una etiqueta igual que alguna de etiquetas. Falso si no.*/
-    bool tieneEtiqueta(vector<string> etiquetas) const;
+    \post Devuelve true si el p.i. coincide con la expresión booleana de etiquetas. Falso si no.*/
+    bool tieneEtiqueta(string expresion) const;
 };
 
 #endif // TAREA_H
