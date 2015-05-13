@@ -68,7 +68,7 @@ public:
     /** @brief Comprueva si el p.i. tiene alguna etiqueta del vector.
     \pre etiquetas están inicializadas.
     \post Devuelve true si el p.i. tiene alguna etiqueta del vector. Falso si no.*/
-    bool tieneEtiqueta(const vector<string>& etiquetas) const;
+    bool tieneEtiquetas(const vector<string>& etiquetas) const;
 };
 
 #endif // TAREA_H
