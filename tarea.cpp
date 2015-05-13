@@ -19,3 +19,19 @@ void Tarea::write() const {
 void Tarea::addEtiqueta(const string &e) {
     etiquetas.push_back(e);
 }
+
+string Tarea::getTitle() const {}
+
+
+bool Tarea::contieneEtiquetas() const {}
+
+vector<string> Tarea::getEtiquetas() const {}
+
+
+void Tarea::setTitle(const string& s) {}
+
+
+bool Tarea::tieneExpresion(string expresion) const {}
+
+
+bool Tarea::tieneEtiquetas(const vector<string>& etiquetas) const {}

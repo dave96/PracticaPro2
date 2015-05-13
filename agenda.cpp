@@ -109,7 +109,7 @@ void Agenda::imprimirTareas(bool& error) {
                     for (map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(reloj.getFecha()); it != tareas.end(); ++it) {
                       vector<string> vetiquetas(comanda.nombre_etiquetes());
                       for (int i = 0; i < vetiquetas.size(); ++i) vetiquetas[i] = comanda.etiqueta(i+1);
-                      if ((*it).second.tieneEtiquetas(vetiquetas) {
+                      if ((*it).second.tieneEtiquetas(vetiquetas)) {
                         menu.anadirTarea(it);
                         cout << comptador << " " << (*it).second.getTitle() << " ";
                         if ((*it).second.contieneEtiquetas()) {
@@ -130,7 +130,7 @@ void Agenda::imprimirTareas(bool& error) {
           menu = Menu();
           map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(consulta);
           if (comanda.nombre_etiquetes() == 0) {
-              while(it != tareas.end() and (*it).second.getFecha() == consulta) {
+              while(it != tareas.end() and (*it).first == consulta) {
                   menu.anadirTarea(it);
                   cout << comptador << " " << (*it).second.getTitle() << " ";
                   if ((*it).second.contieneEtiquetas()) {
@@ -142,7 +142,7 @@ void Agenda::imprimirTareas(bool& error) {
                   cout << endl;
               }
           } else if (comanda.te_expressio()) {
-            while(it != tareas.end() and (*it).second.getFecha() == consulta) {
+            while(it != tareas.end() and (*it).first == consulta) {
               if ((*it).second.tieneExpresion(comanda.expressio())) {
                 menu.anadirTarea(it);
                 cout << comptador << " " << (*it).second.getTitle() << " ";
@@ -156,10 +156,10 @@ void Agenda::imprimirTareas(bool& error) {
               ++it;
             }
           } else {
-            while(it != tareas.end() and (*it).second.getFecha() == consulta) {
+            while(it != tareas.end() and (*it).first == consulta) {
               vector<string> vetiquetas(comanda.nombre_etiquetes());
               for (int i = 0; i < vetiquetas.size(); ++i) vetiquetas[i] = comanda.etiqueta(i+1);
-              if ((*it).second.tieneEtiquetas(vetiquetas) {
+              if ((*it).second.tieneEtiquetas(vetiquetas)) {
                 menu.anadirTarea(it);
                 cout << comptador << " " << (*it).second.getTitle() << " ";
                 if ((*it).second.contieneEtiquetas()) {
@@ -184,7 +184,7 @@ void Agenda::imprimirTareas(bool& error) {
           menu = Menu();
           map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(consulta);
           if (comanda.nombre_etiquetes() == 0) {
-              while(it != tareas.end() and (*it).second.getFecha() <= limite) {
+              while(it != tareas.end() and ((*it).first < limite or (*it).first == limite)) {
                   menu.anadirTarea(it);
                   cout << comptador << " " << (*it).second.getTitle() << " ";
                   if ((*it).second.contieneEtiquetas()) {
@@ -196,7 +196,7 @@ void Agenda::imprimirTareas(bool& error) {
                   cout << endl;
               }
           } else if (comanda.te_expressio()) {
-            while(it != tareas.end() and (*it).second.getFecha() <= limite) {
+            while(it != tareas.end() and ((*it).first < limite or (*it).first == limite)) {
               if ((*it).second.tieneExpresion(comanda.expressio())) {
                 menu.anadirTarea(it);
                 cout << comptador << " " << (*it).second.getTitle() << " ";
@@ -210,10 +210,10 @@ void Agenda::imprimirTareas(bool& error) {
               ++it;
             }
           } else {
-            while(it != tareas.end() and (*it).second.getFecha() <= limite) {
+            while(it != tareas.end() and ((*it).first < limite or (*it).first == limite)) {
               vector<string> vetiquetas(comanda.nombre_etiquetes());
               for (int i = 0; i < vetiquetas.size(); ++i) vetiquetas[i] = comanda.etiqueta(i+1);
-              if ((*it).second.tieneEtiquetas(vetiquetas) {
+              if ((*it).second.tieneEtiquetas(vetiquetas)) {
                 menu.anadirTarea(it);
                 cout << comptador << " " << (*it).second.getTitle() << " ";
                 if ((*it).second.contieneEtiquetas()) {

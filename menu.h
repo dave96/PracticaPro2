@@ -22,11 +22,8 @@ public:
     //pre Iterador it apunta a la tarea en el map.
     void anadirTarea (map<Fecha, Tarea, less<Fecha> >::iterator& it);
 
-    //pre Int num <= numTareas.
-    //post Eliminada la tarea numero num
-    void eliminarTarea (const int& num, bool& error);
 
-    map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea(const int& num, bool& error) const;
+    map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea (const int& num, bool& error) const;
 
 };
 
