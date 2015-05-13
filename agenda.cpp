@@ -77,6 +77,10 @@ void Agenda::imprimirTareas(bool& error) {
       }
       // Tareas futuras
     } else {
-
+        if(comanda.nombre_dates() == 0) {
+          if(comanda.nombre_etiquetes() == 0) {
+              
+          }
+        }
     }
 }
