@@ -81,7 +81,7 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
         if ((comanda.nombre_etiquetes() == 0) or ((not comanda.te_expressio()) and (*it).second.tieneEtiquetas(etiquetas)) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio()))) {
              menu.anadirTarea(it);
              cout << comptador << " ";
-             (*it).second.write();
+             (*it).second.write((*it).first);
              ++comptador;
          }
         ++it;
