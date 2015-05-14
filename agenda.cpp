@@ -26,6 +26,8 @@ bool Agenda::runComanda() {
         tratar_reloj(error);
     } else if (comanda.es_insercio()) {
         insertar_tarea(error);
+    } else if(comanda.es_consulta()) {
+        imprimirTareas(error);
     }
     if (error) {
         cout << "No s'ha realitzat" << endl;
