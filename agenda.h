@@ -34,7 +34,7 @@ private:
     map <Fecha, Tarea, less<Fecha> > tareas;
     void insertar_tarea(bool& error);
     void tratar_reloj(bool& error);
-    void imprimirTareas(bool& error);
+    void imprimirTareas();
     void tareasOut(const Fecha& inicio, const Fecha& fin);
     void modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const Fecha& final);
     void modificarTarea(bool& error);

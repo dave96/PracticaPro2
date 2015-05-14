@@ -31,7 +31,7 @@ bool Agenda::runComanda() {
     } else if (comanda.es_insercio()) {
         insertar_tarea(error);
     } else if(comanda.es_consulta()) {
-        imprimirTareas(error);
+        imprimirTareas();
     } else if(comanda.es_modificacio()) {
         modificarTarea(error);
     }
@@ -79,22 +79,9 @@ void Agenda::modificarTarea(bool& error) {
 void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     int comptador = 1;
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
-    vector<string> etiquetas(comanda.nombre_etiquetes());
-    if (comanda.nombre_etiquetes() != 0 and not comanda.te_expressio()) {
-        //ESTO NO HACE NADA, ? #a #b devuelve error de formato.
-        //las consultas con etiqutas son de dos tipos, PUEDEN SER LAS DOS A LA VEZ:
-        //   -etiqueta suelta (comanda.te_expresio = false, comanda.nombre_etiquetes = 1) ? #a
-        //   -expresion etiquetas, rodeada de paréntesis (comanda.te_expresio = false, comanda.nombre_etiquetes = 0) ? (#a,(#b.#c))
-        //   -? #a (#a,(#b.#c))
-        //De forma que deberias de comprobar con comanda.te_expresio() y comanda.nombre_etiquetes() para arreglar
-        //el bucle while. El for de justo debajo por lo tanto no hace nada, ya que como máximo, nombre_etiquetes = 1
-        //deberías utilizar mi funcion hasEtiqueta para el while de abajo. tieneEtiquetas queda inútil.
-        for(int i = 0; i < comanda.nombre_etiquetes(); ++i) {
-            etiquetas[i] = comanda.etiqueta(i+1);
-        }
-    }
     while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
-        if ((comanda.nombre_etiquetes() == 0) or ((not comanda.te_expressio()) and (*it).second.tieneEtiquetas(etiquetas)) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio()))) {
+        int pos;
+        if (((comanda.nombre_etiquetes() == 0) and ((not comanda.te_expressio())) or (*it).second.tieneExpresion(comanda.expressio())) or ((comanda.nombre_etiquetes() == 1) and (*it).second.hasEtiqueta(comanda.etiqueta(1), pos))) {
              menu.anadirTarea(it);
              cout << comptador << " ";
              (*it).second.write((*it).first);
@@ -104,22 +91,12 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
      }
 }
 
-void Agenda::imprimirTareas(bool& error) {
+void Agenda::imprimirTareas() {
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
-
-      //REPASA ESTE IF, CUANDO NO HAY TAREAS PARA IMPRIMIR, NO DEBERIA DE SALTAR EL ERROR
-      //SIMPLEMENTE NO SE MUESTRA NADA
-
-      //POR QUÉ NO HACES QUE SE ENCARGUE tareasOut de determinar que imprima o no? Tú llámala
-      //igualmente y si resulta que en tramo de fechas que le pasas no hay tarea, pues ya
-      //saldrá del bucle con el menu y pantalla vacio.
-      if (it == tareas.end() or (reloj.getFecha() < (*it).first)) error = true;
-      else {
-          Fecha inicio = (*it).first;
-          Fecha fin = reloj.getFecha();
-          tareasOut(inicio, fin);
-      }
+      Fecha inicio = (*it).first;
+      Fecha fin = reloj.getFecha();
+      tareasOut(inicio, fin);
       // Tareas futuras
     } else {
         if(comanda.nombre_dates() == 0) {
@@ -127,14 +104,8 @@ void Agenda::imprimirTareas(bool& error) {
                   menu = Menu();
                   Fecha inicio = reloj.getFecha();
                   map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
-                  //REPASA ESTE IF, CUANDO NO HAY TAREAS PARA IMPRIMIR, NO DEBERIA DE SALTAR EL ERROR
-                  //SIMPLEMENTE NO SE MUESTRA NADA
-
-                  //POR QUÉ NO HACES QUE SE ENCARGUE tareasOut de determinar que imprima o no? Tú llámala
-                  //igualmente y si resulta que en tramo de fechas que le pasas no hay tarea, pues ya
-                  //saldrá del bucle con el menu y pantalla vacio.
-                  if (tareas.begin() == tareas.end()) error = true;
-                  else {
+                  // Aquí este if no se puede ir, porque necesito saber si puedo sacar una fecha o no.
+                  if (tareas.begin() != tareas.end()) {
                       Fecha fin = (*it).first;
                       tareasOut(inicio, fin);
                   }
