@@ -51,11 +51,16 @@ public:
     \post Devuelve una lista de las etiquetas del p.i. Vacía si no tiene etiquetas.*/
     vector<string> getEtiquetas() const;
 
-    /** @brief Dice si el p.i. contiene etiquetas.
+    /** @brief Dice si el p.i. contiene una etiqueta.
     \pre e es una etiqueta válida, etiquetas está en orden lexicográfico.
     \post Devuelve true si e está en etiquetas, false si no. pos vale la posición de la etiqueta si está o la posición en
     la que debería de estar si no está. (0 <= pos <= etiquetas.size()). */
     bool hasEtiqueta(const string& e, int& pos) const;
+
+    /** @brief Dice si el p.i. contiene una etiqueta.
+    \pre e es una etiqueta válida, etiquetas está en orden lexicográfico.
+    \post Devuelve true si e está en etiquetas, false si no. */
+    bool hasEtiqueta(const string& e) const;
 
     /** @brief .
     \pre s está inicializado.

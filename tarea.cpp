@@ -51,6 +51,11 @@ bool Tarea::hasEtiqueta(const string& e, int& pos) const {
     return i_hasEtiqueta(e, 0, etiquetas.size()-1, pos);
 }
 
+bool Tarea::hasEtiqueta(const string& e) const {
+    int pos;
+    return hasEtiqueta(e, pos);
+}
+
 string Tarea::getTitle() const {
     return title;
 }

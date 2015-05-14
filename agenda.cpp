@@ -97,15 +97,14 @@ void Agenda::imprimirTareas() {
     } else {
         if(comanda.nombre_dates() == 0) {
           // Todas las futuras
-                  menu = Menu();
-                  Fecha inicio = reloj.getFecha();
-                  map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
-                  // Aquí este if no se puede ir, porque necesito saber si puedo sacar una fecha o no.
-                  if (tareas.begin() != tareas.end()) {
-                      Fecha fin = (*it).first;
-                      tareasOut(inicio, fin);
-                  }
-
+          menu = Menu();
+          Fecha inicio = reloj.getFecha();
+          map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
+          // Aquí este if no se puede ir, porque necesito saber si puedo sacar una fecha o no.
+          if (tareas.begin() != tareas.end()) {
+              Fecha fin = (*it).first;
+              tareasOut(inicio, fin);
+          }
         } else if(comanda.nombre_dates() == 1) {
             Fecha inicio (comanda.data(1), "00:00");
             Fecha fin (comanda.data(1), "23:59");
