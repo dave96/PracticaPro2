@@ -17,6 +17,7 @@ private:
     string hora;
     string dia;
     static string invertirDia(string dia);
+
 public:
 
     /** @brief Crea una fecha nueva, con dia y hora asignados.

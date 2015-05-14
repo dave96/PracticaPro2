@@ -60,6 +60,16 @@ void Agenda::insertar_tarea(bool& error) {
     }
 }
 
+void Agenda::modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const Fecha& final) {
+    Tarea temp = (*it).second;
+    tareas.erase(it);
+    tareas.insert(make_pair(final, temp));
+}
+
+void Agenda::modificarTarea(bool& error) {
+
+}
+
 void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     int comptador = 1;
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
@@ -110,7 +120,7 @@ void Agenda::imprimirTareas(bool& error) {
         } else {
           // De una fecha a otra.
             Fecha inicio (comanda.data(1), "00:00");
-            Fecha fin (comanda.data(1), "23:59");
+            Fecha fin (comanda.data(2), "23:59");
           menu = Menu();
           tareasOut(inicio, fin);
         }
