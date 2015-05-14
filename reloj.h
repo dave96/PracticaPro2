@@ -5,7 +5,7 @@
 #ifndef RELOJ_H
 #define RELOJ_H
 
-#include "Fecha.h"
+#include "fecha.h"
 
 /** @class Reloj
     @brief Representa un reloj, una estructura que almacena una Fecha y que la modifica (hacia futuro).
