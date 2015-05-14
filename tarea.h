@@ -74,7 +74,7 @@ public:
     void writeEtiquetas() const;
 
     /** @brief Comprueva si el p.i. tiene alguna etiqueta del vector.
-    \pre etiquetas están inicializadas.
+    \pre etiquetas tiene al menos un elemento (etiqueta) y con valores válidos.
     \post Devuelve true si el p.i. tiene alguna etiqueta del vector. Falso si no.*/
     bool tieneEtiquetas(const vector<string>& etiquetas) const;
 

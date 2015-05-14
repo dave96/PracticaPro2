@@ -64,3 +64,12 @@ void Tarea::writeEtiquetas() const {
     }
 }
 
+bool Tarea::tieneEtiquetas(const vector<string> &etiquetas) const {
+    for(int i = 0; i < etiquetas.size(); ++i) {
+        if(hasEtiqueta(etiquetas[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
