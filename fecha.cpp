@@ -47,11 +47,9 @@ void Fecha::rellenar(const Fecha& f) {
 }
 
 bool Fecha::operator <(const Fecha& f) const {
-    if(invertirDia(dia) < invertirDia(f.getDia())) {
-        return true;
-    } else {
-        return hora < f.getHora();
-    }
+    if(invertirDia(dia) < invertirDia(f.getDia())) return true;
+    if (dia == f.getDia()) return hora < f.getHora();
+    return false;
 }
 
 bool Fecha::operator ==(const Fecha& f) const {
@@ -65,5 +63,7 @@ string Fecha::invertirDia(string dia) {
     dia[1] = dia[1]+dia[length-1];
     dia[length-2] = dia[0]-dia[length-2];
     dia[length-1] = dia[1]-dia[length-1];
+    dia[0] = dia[0]-dia[length-2];
+    dia[1] = dia[1]-dia[length-1];
     return dia;
 }
