@@ -44,7 +44,7 @@ int Tarea::i_hasEtiqueta(const string& e, int i, int j) const {
 }
 
 int Tarea::hasEtiqueta(const string&e) const {
-    i_hasEtiqueta(e, 0, etiquetas.size()-1);
+    return i_hasEtiqueta(e, 0, etiquetas.size()-1);
 }
 
 string Tarea::getTitle() const {
