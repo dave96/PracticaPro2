@@ -9,8 +9,9 @@ Tarea::~Tarea() {
 
 }
 
-void Tarea::write() const {
+void Tarea::write(const Fecha& f) const {
     cout << title;
+    f.write();
     writeEtiquetas();
     cout << endl;
 }
