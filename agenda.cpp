@@ -17,11 +17,7 @@ Agenda::~Agenda() {
 
 bool Agenda::readComanda(bool& formato) {
     comanda = Comanda();
-    bool a = comanda.llegir(formato);
-    cout << "te_expresio = " << comanda.te_expressio() << endl;
-    cout << "n_etiquetas = " << comanda.nombre_etiquetes() << endl;
-    cout << "expresio = " << comanda.expressio() << endl;
-    return a;
+    return comanda.llegir(formato);
 }
 
 bool Agenda::runComanda() {
