@@ -113,16 +113,16 @@ void Agenda::imprimirTareas(bool& error) {
         } else if(comanda.nombre_dates() == 1) {
             Fecha inicio (comanda.data(1), "00:00");
             Fecha fin (comanda.data(1), "23:59");
-           // Una fecha concreta.
-           menu = Menu();
-           tareasOut(inicio, fin);
+            // Una fecha concreta.
+            menu = Menu();
+            tareasOut(inicio, fin);
 
         } else {
-          // De una fecha a otra.
+            // De una fecha a otra.
             Fecha inicio (comanda.data(1), "00:00");
             Fecha fin (comanda.data(2), "23:59");
-          menu = Menu();
-          tareasOut(inicio, fin);
+            menu = Menu();
+            tareasOut(inicio, fin);
         }
     }
 }
