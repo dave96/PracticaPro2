@@ -24,6 +24,7 @@ map<Fecha, Tarea, less<Fecha> >::iterator Menu::consultarTarea(const int& num, b
       return iteradores[num-1];
   } else {
     error = true;
-    return iteradores[0];
+    map<Fecha, Tarea, less<Fecha> >::iterator itvacio;
+    return itvacio;
   }
 }

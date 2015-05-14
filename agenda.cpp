@@ -28,6 +28,8 @@ bool Agenda::runComanda() {
         insertar_tarea(error);
     } else if(comanda.es_consulta()) {
         imprimirTareas(error);
+    } else if(comanda.es_modificacio()) {
+        modificarTarea(error);
     }
     if (error) {
         cout << "No s'ha realitzat" << endl;
