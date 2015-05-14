@@ -20,6 +20,7 @@ class Tarea {
 private:
     string title;
     vector<string> etiquetas;
+    int i_hasTarea();
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
