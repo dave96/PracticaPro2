@@ -60,175 +60,59 @@ void Agenda::insertar_tarea(bool& error) {
     }
 }
 
+void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
+    int comptador = 1;
+    map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
+    vector<string> etiquetas(comanda.nombre_etiquetes());
+    if (comanda.nombre_etiquetes() != 0 and not comanda.te_expressio()) {
+        for(int i = 0; i < comanda.nombre_etiquetes(); ++i) etiquetas[i] = comanda.etiqueta(i+1);
+    }
+    while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
+        if ((comanda.nombre_etiquetes() == 0) or ((not comanda.te_expressio()) and (*it).second.tieneEtiquetas(etiquetas)) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio()))) {
+             menu.anadirTarea(it);
+             cout << comptador << " ";
+             (*it).second.write();
+             ++comptador;
+         }
+        ++it;
+     }
+}
+
 void Agenda::imprimirTareas(bool& error) {
-    // Tareas pasadas.
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
-      if (it == tareas.end() or ((*it).first < reloj.getFecha())) error = true;
+      if (it == tareas.end() or (reloj.getFecha() < (*it).first)) error = true;
       else {
-          int comptador = 1;
-          while (it != tareas.end() and ((*it).first < reloj.getFecha())) {
-            cout << comptador << " " << (*it).second.getTitle() << " ";
-            (*it).first.write();
-            if ((*it).second.contieneEtiquetas()) {
-              vector<string> etiquetas = (*it).second.getEtiquetas();
-              for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-            }
-            cout << endl;
-          }
+          Fecha inicio = (*it).first;
+          Fecha fin = reloj.getFecha();
+          tareasOut(inicio, fin);
       }
       // Tareas futuras
     } else {
         if(comanda.nombre_dates() == 0) {
           // Todas las futuras
-                  int comptador = 1;
                   menu = Menu();
-                  if (comanda.nombre_etiquetes() == 0) {
-                      for (map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(reloj.getFecha()); it != tareas.end(); ++it) {
-                          menu.anadirTarea(it);
-                          cout << comptador << " " << (*it).second.getTitle() << " ";
-                          if ((*it).second.contieneEtiquetas()) {
-                            vector<string> etiquetas = (*it).second.getEtiquetas();
-                            for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                          }
-                          ++comptador;
-                          cout << endl;
-                      }
-                  } else if (comanda.te_expressio()) {
-                    for (map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(reloj.getFecha()); it != tareas.end(); ++it) {
-                      if ((*it).second.tieneExpresion(comanda.expressio())) {
-                        menu.anadirTarea(it);
-                        cout << comptador << " " << (*it).second.getTitle() << " ";
-                        if ((*it).second.contieneEtiquetas()) {
-                          vector<string> etiquetas = (*it).second.getEtiquetas();
-                          for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                        }
-                        ++comptador;
-                        cout << endl;
-                      }
-                    }
-                  } else {
-                    for (map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(reloj.getFecha()); it != tareas.end(); ++it) {
-                      vector<string> vetiquetas(comanda.nombre_etiquetes());
-                      for (int i = 0; i < vetiquetas.size(); ++i) vetiquetas[i] = comanda.etiqueta(i+1);
-                      if ((*it).second.tieneEtiquetas(vetiquetas)) {
-                        menu.anadirTarea(it);
-                        cout << comptador << " " << (*it).second.getTitle() << " ";
-                        if ((*it).second.contieneEtiquetas()) {
-                          vector<string> etiquetas = (*it).second.getEtiquetas();
-                          for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                        }
-                        ++comptador;
-                        cout << endl;
-                      }
-                    }
+                  Fecha inicio = reloj.getFecha();
+                  map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
+                  if (tareas.begin() == tareas.end()) error = true;
+                  else {
+                      Fecha fin = (*it).first;
+                      tareasOut(inicio, fin);
                   }
 
         } else if(comanda.nombre_dates() == 1) {
-          Fecha consulta;
-          consulta.setDia(comanda.data(1));
-          // Una fecha concreta.
-          int comptador = 1;
-          menu = Menu();
-          map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(consulta);
-          if (comanda.nombre_etiquetes() == 0) {
-              while(it != tareas.end() and (*it).first == consulta) {
-                  menu.anadirTarea(it);
-                  cout << comptador << " " << (*it).second.getTitle() << " ";
-                  if ((*it).second.contieneEtiquetas()) {
-                    vector<string> etiquetas = (*it).second.getEtiquetas();
-                    for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                  }
-                  ++comptador;
-                  ++it;
-                  cout << endl;
-              }
-          } else if (comanda.te_expressio()) {
-            while(it != tareas.end() and (*it).first == consulta) {
-              if ((*it).second.tieneExpresion(comanda.expressio())) {
-                menu.anadirTarea(it);
-                cout << comptador << " " << (*it).second.getTitle() << " ";
-                if ((*it).second.contieneEtiquetas()) {
-                  vector<string> etiquetas = (*it).second.getEtiquetas();
-                  for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                }
-                ++comptador;
-                cout << endl;
-              }
-              ++it;
-            }
-          } else {
-            while(it != tareas.end() and (*it).first == consulta) {
-              vector<string> vetiquetas(comanda.nombre_etiquetes());
-              for (int i = 0; i < vetiquetas.size(); ++i) vetiquetas[i] = comanda.etiqueta(i+1);
-              if ((*it).second.tieneEtiquetas(vetiquetas)) {
-                menu.anadirTarea(it);
-                cout << comptador << " " << (*it).second.getTitle() << " ";
-                if ((*it).second.contieneEtiquetas()) {
-                  vector<string> etiquetas = (*it).second.getEtiquetas();
-                  for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                }
-                ++comptador;
-                cout << endl;
-              }
-              ++it;
-            }
-          }
+            Fecha inicio (comanda.data(1), "00:00");
+            Fecha fin (comanda.data(1), "23:59");
+           // Una fecha concreta.
+           menu = Menu();
+           tareasOut(inicio, fin);
 
         } else {
           // De una fecha a otra.
-          Fecha consulta;
-          consulta.setDia(comanda.data(1));
-          Fecha limite;
-          limite.setDia(comanda.data(2));
-          // Una fecha concreta.
-          int comptador = 1;
+            Fecha inicio (comanda.data(1), "00:00");
+            Fecha fin (comanda.data(1), "23:59");
           menu = Menu();
-          map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(consulta);
-          if (comanda.nombre_etiquetes() == 0) {
-              while(it != tareas.end() and ((*it).first < limite or (*it).first == limite)) {
-                  menu.anadirTarea(it);
-                  cout << comptador << " " << (*it).second.getTitle() << " ";
-                  if ((*it).second.contieneEtiquetas()) {
-                    vector<string> etiquetas = (*it).second.getEtiquetas();
-                    for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                  }
-                  ++comptador;
-                  ++it;
-                  cout << endl;
-              }
-          } else if (comanda.te_expressio()) {
-            while(it != tareas.end() and ((*it).first < limite or (*it).first == limite)) {
-              if ((*it).second.tieneExpresion(comanda.expressio())) {
-                menu.anadirTarea(it);
-                cout << comptador << " " << (*it).second.getTitle() << " ";
-                if ((*it).second.contieneEtiquetas()) {
-                  vector<string> etiquetas = (*it).second.getEtiquetas();
-                  for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                }
-                ++comptador;
-                cout << endl;
-              }
-              ++it;
-            }
-          } else {
-            while(it != tareas.end() and ((*it).first < limite or (*it).first == limite)) {
-              vector<string> vetiquetas(comanda.nombre_etiquetes());
-              for (int i = 0; i < vetiquetas.size(); ++i) vetiquetas[i] = comanda.etiqueta(i+1);
-              if ((*it).second.tieneEtiquetas(vetiquetas)) {
-                menu.anadirTarea(it);
-                cout << comptador << " " << (*it).second.getTitle() << " ";
-                if ((*it).second.contieneEtiquetas()) {
-                  vector<string> etiquetas = (*it).second.getEtiquetas();
-                  for(int i = 0; i < etiquetas.size(); ++i) cout << " " << etiquetas[i];
-                }
-                ++comptador;
-                cout << endl;
-              }
-              ++it;
-            }
-          }
-
+          tareasOut(inicio, fin);
         }
     }
 }
