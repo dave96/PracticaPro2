@@ -24,7 +24,7 @@ void Tarea::addEtiqueta(const string &e) {
         int j = etiquetas.size()-1;
         while(j > i) {
             etiquetas[j] = etiquetas[j-1];
-            ++j;
+            --j;
         }
         etiquetas[i] = e;
     }
@@ -83,6 +83,8 @@ void Tarea::writeEtiquetas() const {
     }
 }
 
+
+//esto parece ser que no sirve para nadaaaaaaaaa
 bool Tarea::tieneEtiquetas(const vector<string> &etiquetas) const {
     int size = etiquetas.size();
     for(int i = 0; i < size; ++i) {

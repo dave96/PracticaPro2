@@ -77,7 +77,15 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
     vector<string> etiquetas(comanda.nombre_etiquetes());
     if (comanda.nombre_etiquetes() != 0 and not comanda.te_expressio()) {
-        for(int i = 0; i < comanda.nombre_etiquetes(); ++i) etiquetas[i] = comanda.etiqueta(i+1);
+        //ESTO NO HACE NADA, ? #a #b devuelve error de formato, por lo que no tiene
+        //sentido hacer el vector y pasármelo. Mírate un poco por encima Comanda respecto
+        //a las etiquetas porque tal vez solo deberías de pasarme la expresion (string) y ya
+        //la analizo yo en tieneExpresion(string s). Esto es para que modifiques los if del while de abajo
+        for(int i = 0; i < comanda.nombre_etiquetes(); ++i) {
+            etiquetas[i] = comanda.etiqueta(i+1);
+            cout << i << endl;
+            cout << "te_expresio = " << comanda.te_expressio() << endl;
+        }
     }
     while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
         if ((comanda.nombre_etiquetes() == 0) or ((not comanda.te_expressio()) and (*it).second.tieneEtiquetas(etiquetas)) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio()))) {
@@ -93,6 +101,13 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
 void Agenda::imprimirTareas(bool& error) {
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
+
+      //REPASA ESTE IF, CUANDO NO HAY TAREAS PARA IMPRIMIR, NO DEBERIA DE SALTAR EL ERROR
+      //SIMPLEMENTE NO SE MUESTRA NADA
+
+      //POR QUÉ NO HACES QUE SE ENCARGUE tareasOut de determinar que imprima o no? Tú llámala
+      //igualmente y si resulta que en tramo de fechas que le pasas no hay tarea, pues ya
+      //saldrá del bucle con el menu y pantalla vacio.
       if (it == tareas.end() or (reloj.getFecha() < (*it).first)) error = true;
       else {
           Fecha inicio = (*it).first;
@@ -106,6 +121,12 @@ void Agenda::imprimirTareas(bool& error) {
                   menu = Menu();
                   Fecha inicio = reloj.getFecha();
                   map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
+                  //REPASA ESTE IF, CUANDO NO HAY TAREAS PARA IMPRIMIR, NO DEBERIA DE SALTAR EL ERROR
+                  //SIMPLEMENTE NO SE MUESTRA NADA
+
+                  //POR QUÉ NO HACES QUE SE ENCARGUE tareasOut de determinar que imprima o no? Tú llámala
+                  //igualmente y si resulta que en tramo de fechas que le pasas no hay tarea, pues ya
+                  //saldrá del bucle con el menu y pantalla vacio.
                   if (tareas.begin() == tareas.end()) error = true;
                   else {
                       Fecha fin = (*it).first;
