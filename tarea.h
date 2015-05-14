@@ -20,7 +20,7 @@ class Tarea {
 private:
     string title;
     vector<string> etiquetas;
-    int i_hasTarea();
+    int i_hasEtiqueta(const string& e, int i, int j) const;
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
