@@ -68,9 +68,53 @@ void Tarea::setTitle(const string& title) {
     (*this).title = title;
 }
 
+char Tarea::getOperator(const string& e, int i, int& k) {
+    ++i;
+    if (e[i] == '#') {
+        ++i;
+        while(e[i] != '.' && e[i] != ',') {
+            ++i;
+        }
+    } else {
+        int cont = 1;
+        ++i;
+        while (cont != 0) {
+            if(e[i] == '(') {
+                ++cont;
+            } else if (e[i] == ')') {
+                --cont;
+            }
+            ++i;
+        }
+    }
+    k = i;
+    return e[i];
+}
+
+bool Tarea::i_tieneExpresion(const string& expresion, int i, int j) const {
+    if(expresion[i] == '#') {
+        //Esto es por si no nos dejan usas substring
+        /*string etiqueta(j-i+1, '_');
+        int k = 0;
+        while(i <= j) {
+            etiqueta[k] = expresion[i];
+            ++i;
+            ++k;
+        }*/
+        int pos;
+        return hasEtiqueta(expresion.substr(i, j-i+1), pos);
+    } else {
+        int k;
+        if(getOperator(expresion, i, k) == '.') {
+            return i_tieneExpresion(expresion, i+1, k-1) && i_tieneExpresion(expresion, k+1, j-1);
+        } else {
+            return i_tieneExpresion(expresion, i+1, k-1) || i_tieneExpresion(expresion, k+1, j-1);
+        }
+    }
+}
 
 bool Tarea::tieneExpresion(const string& expresion) const {
-
+    return i_tieneExpresion(expresion, 0, expresion.size()-1);
 }
 
 void Tarea::writeEtiquetas() const {

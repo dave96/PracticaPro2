@@ -22,6 +22,8 @@ private:
     string title;
     vector<string> etiquetas;
     bool i_hasEtiqueta(const string& e, int i, int j, int& pos) const;
+    bool i_tieneExpresion(const string& expresion, int i, int j) const;
+    static char getOperator(const string& e, int i, int& k);
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
