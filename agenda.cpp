@@ -17,7 +17,11 @@ Agenda::~Agenda() {
 
 bool Agenda::readComanda(bool& formato) {
     comanda = Comanda();
-    return comanda.llegir(formato);
+    bool a = comanda.llegir(formato);
+    cout << "te_expresio = " << comanda.te_expressio() << endl;
+    cout << "n_etiquetas = " << comanda.nombre_etiquetes() << endl;
+    cout << "expresio = " << comanda.expressio() << endl;
+    return a;
 }
 
 bool Agenda::runComanda() {
@@ -77,14 +81,16 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
     vector<string> etiquetas(comanda.nombre_etiquetes());
     if (comanda.nombre_etiquetes() != 0 and not comanda.te_expressio()) {
-        //ESTO NO HACE NADA, ? #a #b devuelve error de formato, por lo que no tiene
-        //sentido hacer el vector y pasármelo. Mírate un poco por encima Comanda respecto
-        //a las etiquetas porque tal vez solo deberías de pasarme la expresion (string) y ya
-        //la analizo yo en tieneExpresion(string s). Esto es para que modifiques los if del while de abajo
+        //ESTO NO HACE NADA, ? #a #b devuelve error de formato.
+        //las consultas con etiqutas son de dos tipos, PUEDEN SER LAS DOS A LA VEZ:
+        //   -etiqueta suelta (comanda.te_expresio = false, comanda.nombre_etiquetes = 1) ? #a
+        //   -expresion etiquetas, rodeada de paréntesis (comanda.te_expresio = false, comanda.nombre_etiquetes = 0) ? (#a,(#b.#c))
+        //   -? #a (#a,(#b.#c))
+        //De forma que deberias de comprobar con comanda.te_expresio() y comanda.nombre_etiquetes() para arreglar
+        //el bucle while. El for de justo debajo por lo tanto no hace nada, ya que como máximo, nombre_etiquetes = 1
+        //deberías utilizar mi funcion hasEtiqueta para el while de abajo. tieneEtiquetas queda inútil.
         for(int i = 0; i < comanda.nombre_etiquetes(); ++i) {
             etiquetas[i] = comanda.etiqueta(i+1);
-            cout << i << endl;
-            cout << "te_expresio = " << comanda.te_expressio() << endl;
         }
     }
     while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
