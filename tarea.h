@@ -20,7 +20,6 @@ class Tarea {
 private:
     string title;
     vector<string> etiquetas;
-    int n_etiquetas;
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
@@ -56,6 +55,7 @@ public:
 
     /** @brief .
     \pre s está inicializado.
+    \post El p.i. tiene s como title. */
     void setTitle(const string& s);
 
     /** @brief Añade una etiqueta a la tarea.
@@ -63,11 +63,20 @@ public:
     \post El p.i. tiene la etiqueta e añadida a etiquetas, manteniéndola ordenada.*/
     void addEtiqueta(const string& e);
 
+    /** @brief Comprueva si el p.i. tiene alguna etiqueta del vector.
+    \pre etiquetas están inicializadas.
+    \post Devuelve true si el p.i. tiene alguna etiqueta del vector. Falso si no.*/
+    bool tieneExpresion(const string& expresion) const;
+
+    /** @brief Imprime las etiquetas del p.i. en orden lexicográfico.
+    \pre  Cierto.
+    \post Se han imprimido las etiquetas del p.i. en orden lexicográfico, si tiene.*/
+    void writeEtiquetas() const;
 
     /** @brief Comprueva si el p.i. tiene alguna etiqueta del vector.
     \pre etiquetas están inicializadas.
     \post Devuelve true si el p.i. tiene alguna etiqueta del vector. Falso si no.*/
-    bool tieneExpresion(string expresion) const;
+    bool tieneEtiquetas(const vector<string>& etiquetas) const;
 
 };
 

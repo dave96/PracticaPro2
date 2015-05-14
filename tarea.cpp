@@ -11,7 +11,7 @@ Tarea::~Tarea() {
 
 void Tarea::write() const {
     cout << title;
-    //imprimir todas las etiquetas cuando se implemente bien
+    writeEtiquetas();
     cout << endl;
 }
 
@@ -38,7 +38,7 @@ string Tarea::getTitle() const {
 
 
 bool Tarea::contieneEtiquetas() const {
-    return n_etiquetas != 0;
+    return etiquetas.size() != 0;
 }
 
 vector<string> Tarea::getEtiquetas() const {
@@ -51,7 +51,16 @@ void Tarea::setTitle(const string& title) {
 }
 
 
-bool Tarea::tieneExpresion(string expresion) const {
+bool Tarea::tieneExpresion(const string& expresion) const {
 
+}
+
+void Tarea::writeEtiquetas() const {
+    for(int i = 0; i < etiquetas.size(); ++i) {
+        if(i != 0) {
+            cout << " ";
+        }
+        cout << etiquetas[i];
+    }
 }
 
