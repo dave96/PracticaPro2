@@ -20,7 +20,15 @@ using namespace std;
 
 class Menu {
 private:
-    vector< map<Fecha, Tarea, less<Fecha> >::iterator > iteradores;
+
+    struct entrada {
+         map<Fecha, Tarea, less<Fecha> >::iterator it;
+         bool valido;
+
+    };
+
+    vector<entrada> iteradores;
+
 
 public:
     //pre Cierto.
@@ -31,6 +39,7 @@ public:
     //pre Iterador it apunta a la tarea en el map.
     void anadirTarea (map<Fecha, Tarea, less<Fecha> >::iterator& it);
 
+    void eliminarTarea (const int& num);
 
     map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea (const int& num, bool& error) const;
 

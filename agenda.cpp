@@ -69,6 +69,8 @@ void Agenda::modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const
 }
 
 void Agenda::modificarTarea(bool& error) {
+    // Empezamos por la fecha
+    int tasca = comanda.tasca();
 
 }
 
