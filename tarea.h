@@ -21,7 +21,6 @@ private:
     string title;
     vector<string> etiquetas;
     int n_etiquetas;
-    static const int INITIAL_SIZE = 20;
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
@@ -50,25 +49,26 @@ public:
     \post Devuelve una lista de las etiquetas del p.i. Vacía si no tiene etiquetas.*/
     vector<string> getEtiquetas() const;
 
+    /** @brief Dice si el p.i. contiene etiquetas.
+    \pre e es una etiqueta válida.
+    \post Devuelve la posición de la etiqueta si la tarea contiene la etiqueta e (0 <= pos < n_etiquetas), -1 si no la contiene. */
+    int hasEtiqueta(const string& e) const;
+
     /** @brief .
     \pre s está inicializado.
-    \post El p.i. tiene s como title.*/
     void setTitle(const string& s);
 
-    /** @brief .
-    \pre e está inicializada.
-    \post El p.i. tiene una etiqueta más en la lista etiquetas.*/
+    /** @brief Añade una etiqueta a la tarea.
+    \pre e está inicializada y etiquetas está ordenada crecientemente.
+    \post El p.i. tiene la etiqueta e añadida a etiquetas, manteniéndola ordenada.*/
     void addEtiqueta(const string& e);
 
-    /** @brief Comprueva si el p.i. concide con la expresión de etiquetas dada.
-    \pre etiquetas están inicializadas.
-    \post Devuelve true si el p.i. coincide con la expresión booleana de etiquetas. Falso si no.*/
-    bool tieneExpresion(string expresion) const;
 
     /** @brief Comprueva si el p.i. tiene alguna etiqueta del vector.
     \pre etiquetas están inicializadas.
     \post Devuelve true si el p.i. tiene alguna etiqueta del vector. Falso si no.*/
-    bool tieneEtiquetas(const vector<string>& etiquetas) const;
+    bool tieneExpresion(string expresion) const;
+
 };
 
 #endif // TAREA_H

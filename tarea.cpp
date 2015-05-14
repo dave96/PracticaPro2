@@ -3,7 +3,6 @@
 
 Tarea::Tarea(const string& title) {
     (*this).title = title;
-    etiquetas = vector<string>(INITIAL_SIZE);
 }
 
 Tarea::~Tarea() {
@@ -17,21 +16,42 @@ void Tarea::write() const {
 }
 
 void Tarea::addEtiqueta(const string &e) {
-    etiquetas.push_back(e);
+    int i = hasEtiqueta(e);
+    if(i != -1) {
+        etiquetas.push_back(e);
+        int j = etiquetas.size()-1;
+        while(j > i) {
+            etiquetas[j] = etiquetas[j-1];
+            ++j;
+        }
+        etiquetas[i] = e;
+    }
 }
 
-string Tarea::getTitle() const {}
+int Tarea::hasEtiqueta(const string &e) const {
+
+}
+
+string Tarea::getTitle() const {
+    return title;
+}
 
 
-bool Tarea::contieneEtiquetas() const {}
+bool Tarea::contieneEtiquetas() const {
+    return n_etiquetas != 0;
+}
 
-vector<string> Tarea::getEtiquetas() const {}
-
-
-void Tarea::setTitle(const string& s) {}
-
-
-bool Tarea::tieneExpresion(string expresion) const {}
+vector<string> Tarea::getEtiquetas() const {
+    return etiquetas;
+}
 
 
-bool Tarea::tieneEtiquetas(const vector<string>& etiquetas) const {}
+void Tarea::setTitle(const string& title) {
+    (*this).title = title;
+}
+
+
+bool Tarea::tieneExpresion(string expresion) const {
+
+}
+
