@@ -21,7 +21,7 @@ class Tarea {
 private:
     string title;
     vector<string> etiquetas;
-    int i_hasEtiqueta(const string& e, int i, int j) const;
+    bool i_hasEtiqueta(const string& e, int i, int j, int& pos) const;
 public:
     /** @brief Crea una tarea con título.
     \pre Cierto.
@@ -40,7 +40,7 @@ public:
     string getTitle() const;
 
     /** @brief Dice si el p.i. contiene etiquetas.
-    \pre etiquetas inicializadas.
+    \pre Cierto.
     \post Devuelve true si la tarea contiene alguna etiqueta, false de lo contrario. */
     bool contieneEtiquetas() const;
 
@@ -50,9 +50,10 @@ public:
     vector<string> getEtiquetas() const;
 
     /** @brief Dice si el p.i. contiene etiquetas.
-    \pre e es una etiqueta válida.
-    \post Devuelve la posición de la etiqueta si la tarea contiene la etiqueta e (0 <= pos < n_etiquetas), -1 si no la contiene. */
-    int hasEtiqueta(const string& e) const;
+    \pre e es una etiqueta válida, etiquetas está en orden lexicográfico.
+    \post Devuelve true si e está en etiquetas, false si no. pos vale la posición de la etiqueta si está o la posición en
+    la que debería de estar si no está. (0 <= pos <= etiquetas.size()). */
+    bool hasEtiqueta(const string& e, int& pos) const;
 
     /** @brief .
     \pre s está inicializado.
@@ -75,7 +76,7 @@ public:
     void writeEtiquetas() const;
 
     /** @brief Comprueva si el p.i. tiene alguna etiqueta del vector.
-    \pre etiquetas tiene al menos un elemento (etiqueta) y con valores válidos.
+    \pre Parámetro etiquetas tiene al menos un elemento (etiqueta) y con valores válidos.
     \post Devuelve true si el p.i. tiene alguna etiqueta del vector. Falso si no.*/
     bool tieneEtiquetas(const vector<string>& etiquetas) const;
 
