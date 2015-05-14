@@ -5,6 +5,7 @@
 #ifndef TAREA_H
 #define TAREA_H
 
+#include "fecha.h"
 #include <vector>
 #include <string>
 using namespace std;
@@ -29,15 +30,14 @@ public:
     ~Tarea();
 
     /** @brief Imprime por pantalla la tarea.
-    \pre Cierto.
-    \post Se imprime la tarea por pantalla en orden: title, etiquetas (si hay).*/
-    void write() const;
+    \pre Se le pasa la fecha de la tarea, inicializada y válida.
+    \post Se imprime la tarea por pantalla en orden: title, f, etiquetas (si hay).*/
+    void write(const Fecha& f) const;
 
     /** @brief Devuelve el título de la tarea.
     \pre Cierto.
     \post Devuelve title.*/
     string getTitle() const;
-
 
     /** @brief Dice si el p.i. contiene etiquetas.
     \pre etiquetas inicializadas.
