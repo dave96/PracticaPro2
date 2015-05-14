@@ -35,6 +35,7 @@ private:
     void insertar_tarea(bool& error);
     void tratar_reloj(bool& error);
     void imprimirTareas(bool& error);
+    void tareasOut(const Fecha& inicio, const Fecha& fin);
 
 public:
     /** @brief Crea una agenda vacía con un reloj que se iniciará con fecha inicial.
