@@ -124,9 +124,11 @@ void Agenda::imprimirTareas() {
     Fecha fin;
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
-      inicio = (*it).first;
-      fin = reloj.getFecha();
-      tareasOut(inicio, fin);
+      if (it != tareas.end()) {
+        inicio = (*it).first;
+        fin = reloj.getFecha();
+        tareasOut(inicio, fin);
+      }
     } else {
         menu = Menu();
         if(comanda.nombre_dates() == 0) {
