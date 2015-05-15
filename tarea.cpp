@@ -12,7 +12,6 @@ Tarea::~Tarea() {
 void Tarea::write(const Fecha& f) const {
     cout << title << " ";
     f.write();
-    cout << " ";
     writeEtiquetas();
     cout << endl;
 }
@@ -131,9 +130,7 @@ void Tarea::deleteEtiquetas() {
 void Tarea::writeEtiquetas() const {
     int size = etiquetas.size();
     for(int i = 0; i < size; ++i) {
-        if(i != 0) {
-            cout << " ";
-        }
+        cout << " ";
         cout << etiquetas[i];
     }
 }
