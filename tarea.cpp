@@ -98,14 +98,6 @@ char Tarea::getOperator(const string& e, int i, int& k) {
 
 bool Tarea::i_tieneExpresion(const string& expresion, int i, int j) const {
     if(expresion[i] == '#') {
-        //Esto es por si no nos dejan usas substring
-        /*string etiqueta(j-i+1, '_');
-        int k = 0;
-        while(i <= j) {
-            etiqueta[k] = expresion[i];
-            ++i;
-            ++k;
-        }*/
         int pos;
         return hasEtiqueta(expresion.substr(i, j-i+1), pos);
     } else {
@@ -131,17 +123,3 @@ void Tarea::writeEtiquetas() const {
         cout << etiquetas[i];
     }
 }
-
-
-//esto parece ser que no sirve para nadaaaaaaaaa
-bool Tarea::tieneEtiquetas(const vector<string> &etiquetas) const {
-    int size = etiquetas.size();
-    for(int i = 0; i < size; ++i) {
-        int pos;
-        if(hasEtiqueta(etiquetas[i], pos)) {
-            return true;
-        }
-    }
-    return false;
-}
-

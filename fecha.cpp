@@ -7,11 +7,7 @@ Fecha::Fecha(const string& dia, const string& hora) {
     (*this).hora = hora;
 }
 
-//Constructor vacío necesario para que otras clases puedan tener una fecha como atributo privado. Si no pongo esto, el
-//compilador no sabe como construirlo en el Fecha fecha;
-Fecha::Fecha() {
-
-}
+Fecha::Fecha() {}
 
 Fecha::~Fecha() {
 

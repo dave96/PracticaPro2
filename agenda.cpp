@@ -79,45 +79,41 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
     while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
         if ((comanda.nombre_etiquetes() == 0 and not comanda.te_expressio()) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio())) or ((comanda.nombre_etiquetes() == 1) and (*it).second.hasEtiqueta(comanda.etiqueta(1)))) {
-             menu.anadirTarea(it);
+             if (not comanda.es_passat()) {
+                 menu.anadirTarea(it);
+             }
              cout << comptador << " ";
              (*it).second.write((*it).first);
              ++comptador;
-         }
+        }
         ++it;
      }
 }
 
 void Agenda::imprimirTareas() {
+    Fecha inicio;
+    Fecha fin;
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
-      Fecha inicio = (*it).first;
-      Fecha fin = reloj.getFecha();
+      inicio = (*it).first;
+      fin = reloj.getFecha();
       tareasOut(inicio, fin);
-      // Tareas futuras
     } else {
+        menu = Menu();
         if(comanda.nombre_dates() == 0) {
-          // Todas las futuras
-          menu = Menu();
-          Fecha inicio = reloj.getFecha();
+          inicio = reloj.getFecha();
           map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
-          // Aquí este if no se puede ir, porque necesito saber si puedo sacar una fecha o no.
           if (tareas.begin() != tareas.end()) {
-              Fecha fin = (*it).first;
+              fin = (*it).first;
               tareasOut(inicio, fin);
           }
         } else if(comanda.nombre_dates() == 1) {
-            Fecha inicio (comanda.data(1), "00:00");
-            Fecha fin (comanda.data(1), "23:59");
-            // Una fecha concreta.
-            menu = Menu();
+            inicio = Fecha(comanda.data(1), "00:00");
+            fin = Fecha(comanda.data(1), "23:59");
             tareasOut(inicio, fin);
-
         } else {
-            // De una fecha a otra.
-            Fecha inicio (comanda.data(1), "00:00");
-            Fecha fin (comanda.data(2), "23:59");
-            menu = Menu();
+            inicio = Fecha(comanda.data(1), "00:00");
+            fin = Fecha(comanda.data(2), "23:59");
             tareasOut(inicio, fin);
         }
     }
