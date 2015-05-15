@@ -1,11 +1,4 @@
 #include "agenda.h"
-#include "menu.h"
-#include "fecha.h"
-#include "comanda.h"
-#include "tarea.h"
-#include "token.h"
-#include <map>
-#include <string>
 
 // Público
 

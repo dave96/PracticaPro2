@@ -1,9 +1,4 @@
-#include <map>
-#include <vector>
 #include "menu.h"
-#include "fecha.h"
-#include "tarea.h"
-
 using namespace std;
 
 Menu::Menu() {
