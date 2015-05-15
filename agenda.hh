@@ -5,12 +5,12 @@
 #ifndef AGENDA_H
 #define AGENDA_H
 
-#include "comanda.h"
-#include "reloj.h"
-#include "tarea.h"
-#include "fecha.h"
-#include "menu.h"
-#include "token.h"
+#include "comanda.hh"
+#include "reloj.hh"
+#include "tarea.hh"
+#include "fecha.hh"
+#include "menu.hh"
+#include "token.hh"
 #include <vector>
 #include <string>
 #include <map>

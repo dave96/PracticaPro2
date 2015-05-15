@@ -3,24 +3,25 @@ CONFIG += console
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp \
-    agenda.cpp \
-    reloj.cpp \
-    comanda.cpp \
-    tarea.cpp \
-    fecha.cpp \
-    token.cpp \
-    menu.cpp
+SOURCES += \
+    agenda.cc \
+    comanda.cc \
+    fecha.cc \
+    main.cc \
+    menu.cc \
+    reloj.cc \
+    tarea.cc \
+    token.cc
 
 include(deployment.pri)
 qtcAddDeployment()
 
 HEADERS += \
-    agenda.h \
-    reloj.h \
-    comanda.h \
-    tarea.h \
-    token.h \
-    menu.h \
-    fecha.h
+    agenda.hh \
+    comanda.hh \
+    fecha.hh \
+    menu.hh \
+    tarea.hh \
+    reloj.hh \
+    token.hh
 

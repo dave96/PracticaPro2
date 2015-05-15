@@ -5,7 +5,7 @@
 #ifndef TAREA_H
 #define TAREA_H
 
-#include "fecha.h"
+#include "fecha.hh"
 #include <vector>
 #include <string>
 using namespace std;

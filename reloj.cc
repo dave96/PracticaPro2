@@ -1,4 +1,4 @@
-#include "reloj.h"
+#include "reloj.hh"
 #include <iostream>
 using namespace std;
 

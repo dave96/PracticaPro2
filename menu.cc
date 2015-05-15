@@ -1,4 +1,4 @@
-#include "menu.h"
+#include "menu.hh"
 using namespace std;
 
 Menu::Menu() {

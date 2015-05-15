@@ -1,4 +1,4 @@
-#include "tarea.h"
+#include "tarea.hh"
 #include <iostream>
 
 Tarea::Tarea(const string& title) {

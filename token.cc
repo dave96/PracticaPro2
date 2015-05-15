@@ -1,6 +1,6 @@
 // classe Token
 
-#include "token.h"
+#include "token.hh"
 
 void Token::iniciar() {
     nombre = false;

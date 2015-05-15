@@ -3,8 +3,8 @@
 
 #include <map>
 #include <vector>
-#include "fecha.h"
-#include "tarea.h"
+#include "fecha.hh"
+#include "tarea.hh"
 using namespace std;
 
 

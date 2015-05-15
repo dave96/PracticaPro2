@@ -1,4 +1,4 @@
-#include "fecha.h"
+#include "fecha.hh"
 #include <iostream>
 using namespace std;
 

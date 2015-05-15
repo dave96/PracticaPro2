@@ -10,7 +10,7 @@
 #include <string>
 #include "stdlib.h"
 #include <iostream>
-#include "token.h"
+#include "token.hh"
 using namespace std;
 
 /** @class Comanda
