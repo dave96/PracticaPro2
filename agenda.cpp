@@ -23,6 +23,8 @@ bool Agenda::runComanda() {
         imprimirTareas();
     } else if(comanda.es_modificacio()) {
         modificarTarea(error);
+    } else if(comanda.es_esborrat()) {
+        eliminarTarea(error);
     }
     if (error) {
         cout << "No s'ha realitzat" << endl;
@@ -59,6 +61,19 @@ void Agenda::modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const
     Tarea temp = (*it).second;
     tareas.erase(it);
     tareas.insert(make_pair(final, temp));
+}
+
+void Agenda::eliminarTarea(bool& error) {
+    map<Fecha, Tarea, less<Fecha> >::iterator it = menu.consultarTarea(comanda.tasca(), error);
+    if(!error) {
+        if (comanda.tipus_esborrat() == "tasca") {
+            tareas.erase(it);
+        } else if(comanda.tipus_esborrat() == "etiqueta") {
+            error = (*it).second.deleteEtiqueta(comanda.etiqueta(1));
+        } else {
+            (*it).second.deleteEtiquetas();
+        }
+    }
 }
 
 void Agenda::modificarTarea(bool& error) {
