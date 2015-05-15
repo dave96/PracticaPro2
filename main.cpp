@@ -17,5 +17,4 @@ int main() {
             agenda.runComanda();
         }
     }
-    cout << "Fin de programa, gracias por usarme." << endl;
 }

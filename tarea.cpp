@@ -124,6 +124,10 @@ bool Tarea::deleteEtiqueta(const string& e) {
     }
 }
 
+void Tarea::deleteEtiquetas() {
+    etiquetas = vector<string>();
+}
+
 void Tarea::writeEtiquetas() const {
     int size = etiquetas.size();
     for(int i = 0; i < size; ++i) {

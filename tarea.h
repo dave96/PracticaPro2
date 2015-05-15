@@ -87,6 +87,11 @@ public:
     \post El p.i. ha eliminado la etiqueta e del p.i. si estaba y devuelve true. Deja el p.i. intacto y devuelve false si no estaba.*/
     bool deleteEtiqueta(const string& e);
 
+    /** @brief Elimina todas las etiquetas del p.i.
+    \pre Cierto.
+    \post El p.i. ha eliminado todas sus etiquetas, si tenía.*/
+    void deleteEtiquetas();
+
 };
 
 #endif // TAREA_H
