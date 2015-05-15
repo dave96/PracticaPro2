@@ -37,7 +37,7 @@ private:
     void imprimirTareas();
     void tareasOut(const Fecha& inicio, const Fecha& fin);
     void modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const Fecha& final);
-    void modificarTarea(bool& error);
+    bool modificarTarea();
 
 public:
     /** @brief Crea una agenda vacía con un reloj que se iniciará con fecha inicial.

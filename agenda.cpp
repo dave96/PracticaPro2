@@ -22,7 +22,7 @@ bool Agenda::runComanda() {
     } else if(comanda.es_consulta()) {
         imprimirTareas();
     } else if(comanda.es_modificacio()) {
-        modificarTarea(error);
+        error = modificarTarea();
     }
     if (error) {
         cout << "No s'ha realitzat" << endl;
@@ -61,10 +61,30 @@ void Agenda::modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const
     tareas.insert(make_pair(final, temp));
 }
 
-void Agenda::modificarTarea(bool& error) {
+bool Agenda::modificarTarea() {
     // Empezamos por la fecha
     int tasca = comanda.tasca();
-
+    bool error = false;
+    map <Fecha, Tarea, less<Fecha> >::iterator it = menu.consultarTarea(tasca, error);
+    if (error) return true;
+        // La tarea con el numero existe.
+        if (comanda.nombre_dates() > 0 or comanda.te_hora()) {
+            Fecha nuevo;
+            if (comanda.nombre_dates() > 0) nuevo.setDia(comanda.data(1));
+            if (comanda.te_hora()) nuevo.setHora(comanda.hora());
+            nuevo.rellenar((*it).first);
+            if (nuevo < reloj.getFecha() or (tareas.find(nuevo) != tareas.end())) return true;
+            else {
+                modificarFecha(it, nuevo);
+            }
+        }
+        if (comanda.nombre_etiquetes() > 0) {
+            for(int i = 1; i <= comanda.nombre_etiquetes(); ++i) (*it).second.addEtiqueta(comanda.etiqueta(i));
+        }
+        if (comanda.te_titol()) {
+            (*it).second.setTitle(comanda.titol());
+        }
+    return false;
 }
 
 void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
