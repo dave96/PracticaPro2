@@ -114,6 +114,16 @@ bool Tarea::tieneExpresion(const string& expresion) const {
     return i_tieneExpresion(expresion, 0, expresion.size()-1);
 }
 
+bool Tarea::deleteEtiqueta(const string& e) {
+    int pos;
+    if(hasEtiqueta(e, pos)) {
+        etiquetas.erase(etiquetas.begin()+pos);
+        return true;
+    } else {
+        return false;
+    }
+}
+
 void Tarea::writeEtiquetas() const {
     int size = etiquetas.size();
     for(int i = 0; i < size; ++i) {

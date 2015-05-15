@@ -82,7 +82,10 @@ public:
     \post Se han imprimido las etiquetas del p.i. en orden lexicográfico, si tiene.*/
     void writeEtiquetas() const;
 
-    bool deleteEtiqueta() const;
+    /** @brief Elimina una etiqueta del p.i.
+    \pre Cierto.
+    \post El p.i. ha eliminado la etiqueta e del p.i. si estaba y devuelve true. Deja el p.i. intacto y devuelve false si no estaba.*/
+    bool deleteEtiqueta(const string& e);
 
 };
 
