@@ -69,6 +69,7 @@ void Agenda::eliminarTarea(bool& error) {
     if(!error and (reloj.getFecha() < (*it).first or reloj.getFecha() == (*it).first)) {
         if (comanda.tipus_esborrat() == "tasca") {
             tareas.erase(it);
+            menu.eliminarTarea(comanda.tasca());
         } else if(comanda.tipus_esborrat() == "etiqueta") {
             error = (*it).second.deleteEtiqueta(comanda.etiqueta(1));
         } else {
