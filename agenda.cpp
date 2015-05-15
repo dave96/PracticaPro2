@@ -72,9 +72,7 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
     while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
         if ((comanda.nombre_etiquetes() == 0 and not comanda.te_expressio()) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio())) or ((comanda.nombre_etiquetes() == 1) and (*it).second.hasEtiqueta(comanda.etiqueta(1)))) {
-             if (not comanda.es_passat()) {
-                 menu.anadirTarea(it);
-             }
+             if (not comanda.es_passat()) menu.anadirTarea(it);
              cout << comptador << " ";
              (*it).second.write((*it).first);
              ++comptador;
