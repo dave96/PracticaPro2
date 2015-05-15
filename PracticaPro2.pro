@@ -7,11 +7,11 @@ SOURCES += \
     agenda.cc \
     comanda.cc \
     fecha.cc \
-    main.cc \
     menu.cc \
     reloj.cc \
     tarea.cc \
-    token.cc
+    token.cc \
+    program.cc
 
 include(deployment.pri)
 qtcAddDeployment()
