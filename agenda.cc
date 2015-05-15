@@ -66,7 +66,7 @@ void Agenda::modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const
 
 void Agenda::eliminarTarea(bool& error) {
     map<Fecha, Tarea, less<Fecha> >::iterator it = menu.consultarTarea(comanda.tasca(), error);
-    if(!error) {
+    if(!error and (reloj.getFecha() < (*it).first or reloj.getFecha() == (*it).first)) {
         if (comanda.tipus_esborrat() == "tasca") {
             tareas.erase(it);
         } else if(comanda.tipus_esborrat() == "etiqueta") {
@@ -74,7 +74,7 @@ void Agenda::eliminarTarea(bool& error) {
         } else {
             (*it).second.deleteEtiquetas();
         }
-    }
+    } else error = true;
 }
 
 bool Agenda::modificarTarea() {
@@ -83,6 +83,7 @@ bool Agenda::modificarTarea() {
     bool error = false;
     map <Fecha, Tarea, less<Fecha> >::iterator it = menu.consultarTarea(tasca, error);
     if (error) return true;
+    if (not (reloj.getFecha() < (*it).first or reloj.getFecha() == (*it).first)) return true;
         // La tarea con el numero existe.
         if (comanda.nombre_dates() > 0 or comanda.te_hora()) {
             Fecha nuevo;
@@ -122,6 +123,7 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
 void Agenda::imprimirTareas() {
     Fecha inicio;
     Fecha fin;
+    menu = Menu();
     if (comanda.es_passat()) {
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
       if (it != tareas.end()) {
@@ -130,7 +132,6 @@ void Agenda::imprimirTareas() {
         tareasOut(inicio, fin);
       }
     } else {
-        menu = Menu();
         if(comanda.nombre_dates() == 0) {
           inicio = reloj.getFecha();
           map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
