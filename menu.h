@@ -41,6 +41,8 @@ public:
 
     void eliminarTarea (const int& num);
 
+    void modificarTarea(const int& num, map<Fecha, Tarea, less<Fecha> >:: iterator& it);
+
     map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea (const int& num, bool& error) const;
 
 };

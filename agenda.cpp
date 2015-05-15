@@ -92,6 +92,8 @@ bool Agenda::modificarTarea() {
             if (nuevo < reloj.getFecha() or (tareas.find(nuevo) != tareas.end())) return true;
             else {
                 modificarFecha(it, nuevo);
+                it = tareas.find(nuevo);
+                menu.modificarTarea(tasca, it);
             }
         }
         if (comanda.nombre_etiquetes() > 0) {
@@ -136,10 +138,12 @@ void Agenda::imprimirTareas() {
           }
         } else if(comanda.nombre_dates() == 1) {
             inicio = Fecha(comanda.data(1), "00:00");
+            if (inicio < reloj.getFecha()) inicio = reloj.getFecha();
             fin = Fecha(comanda.data(1), "23:59");
             tareasOut(inicio, fin);
         } else {
             inicio = Fecha(comanda.data(1), "00:00");
+            if (inicio < reloj.getFecha()) inicio = reloj.getFecha();
             fin = Fecha(comanda.data(2), "23:59");
             tareasOut(inicio, fin);
         }

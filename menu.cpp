@@ -26,6 +26,10 @@ map<Fecha, Tarea, less<Fecha> >::iterator Menu::consultarTarea(const int& num, b
   }
 }
 
+void Menu::modificarTarea(const int& num, map<Fecha, Tarea, less<Fecha> >:: iterator& it) {
+    if(num <= iteradores.size()) iteradores[num-1].it = it;
+}
+
 void Menu::eliminarTarea(const int& num) {
     if(num <= iteradores.size()) iteradores[num-1].valido = false;
 }

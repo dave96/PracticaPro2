@@ -118,9 +118,9 @@ bool Tarea::deleteEtiqueta(const string& e) {
     int pos;
     if(hasEtiqueta(e, pos)) {
         etiquetas.erase(etiquetas.begin()+pos);
-        return true;
-    } else {
         return false;
+    } else {
+        return true;
     }
 }
 
