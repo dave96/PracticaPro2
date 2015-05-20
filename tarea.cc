@@ -72,7 +72,7 @@ void Tarea::setTitle(const string& title) {
     (*this).title = title;
 }
 
-char Tarea::getOperator(const string& e, int i, int& k) {
+char Tarea::getOperator(const string& e, int& i) {
     ++i;
     if (e[i] == '#') {
         ++i;
@@ -91,7 +91,6 @@ char Tarea::getOperator(const string& e, int i, int& k) {
             ++i;
         }
     }
-    k = i;
     return e[i];
 }
 
@@ -100,8 +99,8 @@ bool Tarea::i_tieneExpresion(const string& expresion, int i, int j) const {
         int pos;
         return hasEtiqueta(expresion.substr(i, j-i+1), pos);
     } else {
-        int k;
-        if(getOperator(expresion, i, k) == '.') {
+        int k = i;
+        if(getOperator(expresion, k) == '.') {
             return i_tieneExpresion(expresion, i+1, k-1) && i_tieneExpresion(expresion, k+1, j-1);
         } else {
             return i_tieneExpresion(expresion, i+1, k-1) || i_tieneExpresion(expresion, k+1, j-1);
