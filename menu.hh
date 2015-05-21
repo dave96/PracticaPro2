@@ -24,7 +24,6 @@ private:
     struct entrada {
          map<Fecha, Tarea, less<Fecha> >::iterator it;
          bool valido;
-
     };
 
     vector<entrada> iteradores;
@@ -54,7 +53,7 @@ public:
 
     /** @brief Devuelve el iterador de la tarea número num del menú.
     \pre Número de tarea en el menú, error falso.
-    \post  Devuelve el iterador a la tarea y error falso si hay es correcta la consulta, y error verdadero y un iterador vacío si no es correcta. */
+    \post Devuelve el iterador a la tarea y error falso si hay es correcta la consulta, y error verdadero y un iterador vacío si no es correcta. */
     map<Fecha, Tarea, less<Fecha> >::iterator consultarTarea (const int& num, bool& error) const;
 
 };

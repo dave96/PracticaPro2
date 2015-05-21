@@ -36,21 +36,6 @@ public:
     \post Se imprime la tarea por pantalla en orden: title, f, etiquetas (si hay).*/
     void write(const Fecha& f) const;
 
-    /** @brief Devuelve el título de la tarea.
-    \pre Cierto.
-    \post Devuelve title.*/
-    string getTitle() const;
-
-    /** @brief Dice si el p.i. contiene etiquetas.
-    \pre Cierto.
-    \post Devuelve true si la tarea contiene alguna etiqueta, false de lo contrario. */
-    bool contieneEtiquetas() const;
-
-    /** @brief Devuelve la lista de las etiquetas descriptivas del p.i..
-    \pre Cierto.
-    \post Devuelve una lista de las etiquetas del p.i. Vacía si no tiene etiquetas.*/
-    vector<string> getEtiquetas() const;
-
     /** @brief Dice si el p.i. contiene una etiqueta.
     \pre e es una etiqueta válida, etiquetas está en orden lexicográfico.
     \post Devuelve true si e está en etiquetas, false si no. pos vale la posición de la etiqueta si está o la posición en

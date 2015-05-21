@@ -1,7 +1,5 @@
 #include "agenda.hh"
 
-// Público
-
 Agenda::Agenda() {
 }
 
@@ -31,8 +29,6 @@ bool Agenda::runComanda() {
     }
     return error;
 }
-
-// Privado
 
 void Agenda::tratar_reloj(bool& error) {
     if (comanda.es_consulta()) {

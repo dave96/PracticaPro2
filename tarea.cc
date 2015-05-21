@@ -55,19 +55,6 @@ bool Tarea::hasEtiqueta(const string& e) const {
     return hasEtiqueta(e, pos);
 }
 
-string Tarea::getTitle() const {
-    return title;
-}
-
-bool Tarea::contieneEtiquetas() const {
-    return etiquetas.size() != 0;
-}
-
-vector<string> Tarea::getEtiquetas() const {
-    return etiquetas;
-}
-
-
 void Tarea::setTitle(const string& title) {
     (*this).title = title;
 }
