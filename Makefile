@@ -17,5 +17,5 @@ program.o: agenda.hh program.cc
 program.exe: fecha.o reloj.o token.o comanda.o tarea.o menu.o agenda.o program.o
 	g++ fecha.o reloj.o token.o comanda.o tarea.o menu.o agenda.o program.o -o program.exe
 practica.tar: agenda.cc fecha.cc menu.hh tarea.cc agenda.hh fecha.hh program.cc tarea.hh reloj.cc menu.cc reloj.hh Makefile
-	tar -cf practica.tar agenda.cc fecha.cc menu.hh tarea.cc agenda.hh fecha.hh program.cc tarea.hh reloj.cc menu.cc reloj.hh Makefile
+	tar -cvf practica.tar agenda.cc fecha.cc menu.hh tarea.cc agenda.hh fecha.hh program.cc tarea.hh reloj.cc menu.cc reloj.hh Makefile jp_david.alvarez.robert_entrada.txt jp_david.alvarez.robert_sortida.txt jp_gonzalo.solera_entrada.txt jp_gonzalo.solera_sortida.txt equip.pdf html.zip
 
