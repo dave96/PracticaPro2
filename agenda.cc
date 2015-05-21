@@ -54,6 +54,7 @@ void Agenda::insertar_tarea(bool& error) {
 }
 
 void Agenda::modificarFecha(map <Fecha, Tarea, less<Fecha> >::iterator it, const Fecha& final) {
+    // Per modificar una data del map eliminem la tasca guardant un temporal i la tornem a inserir amb la nova data.
     Tarea temp = (*it).second;
     tareas.erase(it);
     tareas.insert(make_pair(final, temp));
@@ -83,6 +84,7 @@ bool Agenda::modificarTarea() {
     if (not (reloj.getFecha() < (*it).first or reloj.getFecha() == (*it).first)) return true;
         // La tarea con el numero existe.
         if (comanda.nombre_dates() > 0 or comanda.te_hora()) {
+            // Hem de canviar la data o la hora.
             Fecha nuevo;
             if (comanda.nombre_dates() > 0) nuevo.setDia(comanda.data(1));
             if (comanda.te_hora()) nuevo.setHora(comanda.hora());
@@ -95,9 +97,11 @@ bool Agenda::modificarTarea() {
             }
         }
         if (comanda.nombre_etiquetes() > 0) {
+            // Afegim etiquetes
             for(int i = 1; i <= comanda.nombre_etiquetes(); ++i) (*it).second.addEtiqueta(comanda.etiqueta(i));
         }
         if (comanda.te_titol()) {
+            // Canviem títol
             (*it).second.setTitle(comanda.titol());
         }
     return false;
@@ -107,7 +111,8 @@ void Agenda::tareasOut(const Fecha& inicio, const Fecha& fin) {
     int comptador = 1;
     map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.lower_bound(inicio);
     while (it != tareas.end() and ((*it).first < fin or ((not comanda.es_passat() and (*it).first == fin)))) {
-        if ((comanda.nombre_etiquetes() == 0 and not comanda.te_expressio()) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio())) or ((comanda.nombre_etiquetes() == 1) and (*it).second.hasEtiqueta(comanda.etiqueta(1)))) {
+        // La condició de l'if comprova si, en cas de que la consulta tingui etiquetes o expressio booleana, les compleix.
+        if ((comanda.nombre_etiquetes() == 0 and not comanda.te_expressio()) or (comanda.te_expressio() and (*it).second.tieneExpresion(comanda.expressio())) or ((comanda.nombre_etiquetes() == 1) and (*it).second.tieneExpresion(comanda.etiqueta(1)))) {
              if (not comanda.es_passat()) menu.anadirTarea(it);
              cout << comptador << " ";
              (*it).second.write((*it).first);
@@ -122,6 +127,7 @@ void Agenda::imprimirTareas() {
     Fecha fin;
     menu = Menu();
     if (comanda.es_passat()) {
+      // Tasques passades
       map <Fecha, Tarea, less<Fecha> >::iterator it = tareas.begin();
       if (it != tareas.end()) {
         inicio = (*it).first;
@@ -130,6 +136,7 @@ void Agenda::imprimirTareas() {
       }
     } else {
         if(comanda.nombre_dates() == 0) {
+          // Totes les futures
           inicio = reloj.getFecha();
           map <Fecha, Tarea, less<Fecha> >::reverse_iterator it = tareas.rbegin();
           if (tareas.begin() != tareas.end()) {
@@ -137,11 +144,13 @@ void Agenda::imprimirTareas() {
               tareasOut(inicio, fin);
           }
         } else if(comanda.nombre_dates() == 1) {
+            // Futures en una data concreta
             inicio = Fecha(comanda.data(1), "00:00");
             if (inicio < reloj.getFecha()) inicio = reloj.getFecha();
             fin = Fecha(comanda.data(1), "23:59");
             tareasOut(inicio, fin);
         } else {
+            // Futures en un interval.
             inicio = Fecha(comanda.data(1), "00:00");
             if (inicio < reloj.getFecha()) inicio = reloj.getFecha();
             fin = Fecha(comanda.data(2), "23:59");
