@@ -50,23 +50,22 @@ bool Tarea::hasEtiqueta(const string& e, int& pos) const {
     return i_hasEtiqueta(e, 0, etiquetas.size()-1, pos);
 }
 
-bool Tarea::hasEtiqueta(const string& e) const {
-    int pos;
-    return hasEtiqueta(e, pos);
-}
-
 void Tarea::setTitle(const string& title) {
     (*this).title = title;
 }
 
 char Tarea::getOperator(const string& e, int& i) {
+    //Devuelve el tipo de operador (. o ,) de una expresión que comienza en i. También deja en i su posición.
     ++i;
     if (e[i] == '#') {
+        //En el caso en el que la primera parte es un a etiqueta, se recorre hasta que acaba (y llega al operador)
         ++i;
         while(e[i] != '.' && e[i] != ',') {
             ++i;
         }
     } else {
+        //En el caso en el que la primera parte es otra expresión, se recorre contando paréntesis abiertos hasta que se cierran todos
+        //(y llega al operador)
         int cont = 1;
         ++i;
         while (cont != 0) {
@@ -83,9 +82,11 @@ char Tarea::getOperator(const string& e, int& i) {
 
 bool Tarea::i_tieneExpresion(const string& expresion, int i, int j) const {
     if(expresion[i] == '#') {
+        //Caso base en el que la expresión es una etiqueta suelta (no es expresión)
         int pos;
         return hasEtiqueta(expresion.substr(i, j-i+1), pos);
     } else {
+        //Caso recursivo en el que es una expresión
         int k = i;
         if(getOperator(expresion, k) == '.') {
             return i_tieneExpresion(expresion, i+1, k-1) && i_tieneExpresion(expresion, k+1, j-1);
@@ -96,6 +97,7 @@ bool Tarea::i_tieneExpresion(const string& expresion, int i, int j) const {
 }
 
 bool Tarea::tieneExpresion(const string& expresion) const {
+    //Se le llama a la función de inmersión para hacer la recursividad
     return i_tieneExpresion(expresion, 0, expresion.size()-1);
 }
 

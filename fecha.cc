@@ -34,6 +34,7 @@ void Fecha::setHora(const string& hora) {
 }
 
 void Fecha::rellenar(const Fecha& f) {
+    //Se completa una fecha en el caso en el que no esté completada (cuando el usuario introduce una hora o una fecha solo
     if(dia == "") {
         setDia(f.getDia());
     }
@@ -54,6 +55,8 @@ bool Fecha::operator ==(const Fecha& f) const {
 
 
 string Fecha::invertirDia(string dia) {
+    //Se invierte el dia de la fecha para poderlo comparar más cómodamente
+    //Se pone el año como cifras de más peso y el día las de menos
     int length = dia.size();
     dia[0] = dia[0]+dia[length-2];
     dia[1] = dia[1]+dia[length-1];

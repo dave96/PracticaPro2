@@ -42,11 +42,6 @@ public:
     la que debería de estar si no está. (0 <= pos <= etiquetas.size()). */
     bool hasEtiqueta(const string& e, int& pos) const;
 
-    /** @brief Dice si el p.i. contiene una etiqueta.
-    \pre e es una etiqueta válida, etiquetas está en orden lexicográfico.
-    \post Devuelve true si e está en etiquetas, false si no. */
-    bool hasEtiqueta(const string& e) const;
-
     /** @brief .
     \pre s está inicializado.
     \post El p.i. tiene s como title. */
