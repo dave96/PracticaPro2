@@ -1,0 +1,35 @@
+rellotge?
++ Fer lliurament pràctica 24.05.15 23:59
++ Jugar a tenis 12:00
++ Dinar familiar 23.05.15 14:00
++ Anar a dormir 22.05.15 00:00
++ Menjar pastís 30.05.15 18:00
+?
+? 23.05.15
+passat?
+rellotge 23.05.15 14:00
+passat?
+?
+1 #familia #important
+2 #fib #upc #important
+3 #dolç #lleure
+? ((#fib,#lleure).#important)
+? ((#familia.#important),#lleure)
+rellotge 01.06.15
+-1
+2 -#fib
+?
+passat?
++ Acabar classes 05.06.15 12:00 #estiu #vacances #finals
++ Tasca al passat 20.05.15 11:00 #error
+?
+1 #novaetiqueta
+?
+1 -#estiu
+1 -#vacances
+?
+1 -etiquetes
+1 06.06.15
+1 Finals FIB
+?
+sortir
