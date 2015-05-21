@@ -1,0 +1,36 @@
+
++ pasear al perro #mascota #diario #parque 19:00
+Error de format
+
++ comprar verdura #compra #super #diario 16:30 10.05.15
+
+?
+1 pasear al perro 20.04.15 19:00 #diario #mascota #parque
+2 comprar verdura 10.05.15 16:30 #compra #diario #super
+
+rellotge 21:00
+
+passat?
+1 pasear al perro 20.04.15 19:00 #diario #mascota #parque
+
+?
+1 comprar verdura 10.05.15 16:30 #compra #diario #super
+Error de format
+
+? #compra
+1 comprar verdura 10.05.15 16:30 #compra #diario #super
+
+? ((#compra,#diario).#parque)
+
+?
+1 comprar verdura 10.05.15 16:30 #compra #diario #super
+
+rellotge 04.06.15
+
+?
+
+passat?
+1 pasear al perro 20.04.15 19:00 #diario #mascota #parque
+2 comprar verdura 10.05.15 16:30 #compra #diario #super
+
+sortir

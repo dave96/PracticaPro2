@@ -1,0 +1,15 @@
++ pasear al perro #mascota #diario #parque 19:00
++ ir al gimnasio #gym #deporte #salud #diario 09.05.15
++ comprar verdura #compra #super #diario 16:30 10.05.15
+?
+rellotge 21:00
+passat?
+?
++ comprar regalo papá #compra #regalo #sorpresa 05.06.15
+? #compra
+? ((#compra,#diario).#parque)
+?
+rellotge 04.06.15
+?
+passat?
+sortir
