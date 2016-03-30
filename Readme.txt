@@ -1,3 +1,4 @@
-Práctica Pro2
+PracticaPro2
 
-No hagas commit de *.pro.user y mierdas varias, solo de *.pro y del resto de ficheros C++
+ - This is a public repository that was once created for the subject of PRO2 at UPC - BarcelonaTech. This is here as an historical reference
+for future students. Feel free to share and redistribute, this is Public Domain.
